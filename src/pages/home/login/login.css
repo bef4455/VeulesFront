@@ -1,0 +1,82 @@
+video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    z-index: -1;
+}
+.login{
+    font-family: 'Varela Round', sans-serif;
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+        rgba(255,255,255,0.5),
+        rgba(255,255,255,0.5)
+        ),
+         /* url("./../../../../public/IMG_3842.JPEG");
+    background-size: cover; */
+}
+.loginTitle{
+    color: whitesmoke;
+    font-size: 50px;
+}
+
+.loginForm{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    height: calc(35vh - 70px);
+    background-color: rgba(78, 78, 78, 0.479);
+    color: whitesmoke;
+}
+
+.loginForm>label{
+    margin: 10px 0;
+
+}
+
+.loginInput{
+    padding: 10px;
+    background-color: white;
+    border: none;
+}
+
+.loginButton{
+    margin-top: 20px;
+    cursor: pointer;
+    background-color:  rgb(33, 125, 255);
+    border: none;
+    color: white;
+    border-radius: 10%;
+    padding: 10px;
+}
+.loginButton:disabled{
+    cursor:not-allowed;
+    background-color:rgb(129, 177, 245);
+}
+
+.loginRegisterButton{
+   position: absolute; 
+   top: 60px;
+   right: 20px;
+   background-color:lightcoral;
+   cursor: pointer;
+   border: none;
+   padding: 10px;
+   color: white;
+   border-radius: 10px;
+}
+
+.errorMessage{
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
