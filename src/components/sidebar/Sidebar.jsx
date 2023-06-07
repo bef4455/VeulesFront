@@ -23,7 +23,7 @@ function Sidebar() {
       <div className="sidebarItem">
         <span className="sidebarTitle">A PROPOS DE NOUS</span>
         <img
-          src="https://github.com/bef4455/VeulesFront/blob/main/public/IMG_3880.jpeg"
+          src="https://raw.githubusercontent.com/bef4455/VeulesFront/main/public/IMG_3880.jpeg"
           alt=""
         />
         <p>
