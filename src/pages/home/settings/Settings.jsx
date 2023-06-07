@@ -14,7 +14,7 @@ function Settings({ fetchPosts }) {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const { user, dispatch } = useContext(Context);
-  const PF = "http://localhost:5005/images/";
+  const PF = "https://veulesback.onrender.com/images/";
 
   const isValidEmail = (email) => {
     // Expression régulière pour la validation de l'adresse e-mail

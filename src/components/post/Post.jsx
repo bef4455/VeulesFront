@@ -4,7 +4,7 @@ import frLocale from "date-fns/locale/fr";
 import { Link } from "react-router-dom";
 
 function Post({ post }) {
-  const PF = "http://localhost:5005/images/";
+  const PF = "https://veulesback.onrender.com/images/";
   const currentDate = new Date();
   const formattedDate = format(currentDate, "PPP", { locale: frLocale });
 

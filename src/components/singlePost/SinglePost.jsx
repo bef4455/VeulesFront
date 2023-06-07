@@ -12,7 +12,7 @@ function SinglePost({ fetchPosts }) {
   const [desc, setDesc] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
   const params = useParams();
-  const PF = "http://localhost:5005/images/";
+  const PF = "https://veulesback.onrender.com/images/";
   let { user } = useContext(Context);
   const Navigate = useNavigate();
 
