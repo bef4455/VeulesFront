@@ -22,7 +22,7 @@ function Sidebar() {
     <div className="sidebar">
       <div className="sidebarItem">
         <span className="sidebarTitle">A PROPOS DE NOUS</span>
-        <img src="../../../dist/IMG_3880.jpeg" alt="" />
+        <img src="../../../public/IMG_3880.jpeg" alt="" />
         <p>
           De Rouen et de Paris, Julien et Gisèle choisirent de se poser ici. La
           paisible Sam accueille, maintenant toute une joyeuse ribambelle de
