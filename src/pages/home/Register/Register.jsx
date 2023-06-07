@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import DJI_00534 from "../../../assets/DJI_00534.mp4";
 import { useState } from "react";
 import myApi from "../../../service/service";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -10,6 +11,7 @@ function Register() {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
+  const Navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,12 +19,12 @@ function Register() {
     setIsLoading(true);
 
     try {
-      const res = await myApi.post("/auth/register", {
+      await myApi.post("/auth/register", {
         username,
         email,
         password,
       });
-      res.data && window.location.replace("/login");
+      Navigate("/login");
     } catch (err) {
       setError(true);
     }
