@@ -54,3 +54,24 @@
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .post {
+      width: 100%; /* Ajustez la largeur pour occuper toute la largeur de l'écran */
+      margin: 0 0 30px 0; /* Réduisez la marge pour économiser de l'espace */
+    }
+  
+    .postImg {
+      height: 200px; /* Réduisez la hauteur de l'image */
+    }
+  
+    .postTitle {
+      font-size: 20px; /* Réduisez la taille de police du titre */
+    }
+  
+    .postDesc {
+      font-size: 12px; /* Réduisez la taille de police de la description */
+      line-height: 18px; /* Réduisez la hauteur de ligne de la description */
+    }
+  }

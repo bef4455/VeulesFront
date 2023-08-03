@@ -52,3 +52,28 @@
     cursor: pointer;
 }
 
+@media only screen and (max-width: 600px) {
+    .sidebar {
+      flex: 1; /* Ajustez la flexibilité pour occuper moins d'espace */
+      margin: 10px; /* Réduisez la marge pour économiser de l'espace */
+    }
+  
+    .sidebarTitle {
+      font-size: 10px; /* Réduisez la taille de police pour une meilleure lisibilité sur les petits écrans */
+    }
+  
+    .sidebarItem > img {
+      width: 10rem; /* Réduisez la taille de l'image */
+      height: 10rem;
+      margin-top: 2px; /* Réduisez la marge supérieure de l'image */
+    }
+  
+    .sidebarItem > p {
+      padding: 20px; /* Réduisez le rembourrage du paragraphe */
+    }
+  
+    .sidebarListItem {
+      width: 100%; /* Ajustez la largeur des éléments de la liste pour occuper toute la largeur de la sidebar */
+    }
+  }
+

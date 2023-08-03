@@ -3,6 +3,7 @@ import "./write.css";
 import myApi from "../../../service/service";
 import { Context } from "../../../context/Context";
 import { useNavigate } from "react-router";
+import axios from "axios";
 
 function Write({ fetchPosts }) {
   const [title, setTitle] = useState("");
@@ -13,6 +14,10 @@ function Write({ fetchPosts }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!user || !user.username) {
+      return;
+    }
     const newPost = {
       username: user.username,
       title,
@@ -24,14 +29,28 @@ function Write({ fetchPosts }) {
       const filename = Date.now() + file.name;
       data.append("name", filename);
       data.append("file", file);
-      newPost.photo = filename;
+      data.append("upload_preset", "jycc7iqt");
+      // newPost.photo = filename;
 
       try {
-        await myApi.post("/upload", data);
+        // Utilisez axios pour effectuer l'appel API
+        const response = await axios.post(
+          "https://api.cloudinary.com/v1_1/dmhbnekk4/image/upload",
+          data,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+
+        // Mettez à jour newPost.photo avec l'URL de Cloudinary
+        newPost.photo = response.data.public_id + "." + response.data.format;
       } catch (error) {
         ///
       }
     }
+
     try {
       const res = await myApi.createPost(newPost);
       fetchPosts();
@@ -59,7 +78,7 @@ function Write({ fetchPosts }) {
           />
           <input
             type="text"
-            placeholder="Title"
+            placeholder="Titre"
             className="writeInput"
             autoFocus={true}
             onChange={(e) => setTitle(e.target.value)}

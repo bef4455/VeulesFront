@@ -99,3 +99,22 @@ color: teal;
     margin-top: 20px;
 
 }
+
+@media only screen and (max-width: 600px) {
+    .singlePostWrapper {
+      padding: 10px;
+    }
+  
+    .singlePostImg {
+      height: 200px;
+    }
+  
+    .singlePostTitle {
+      font-size: 20px;
+    }
+  
+    .singlePostDesc {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }

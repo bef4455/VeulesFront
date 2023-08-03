@@ -94,3 +94,24 @@ cursor: pointer;
     margin-top: 10px;
   }
 
+  @media only screen and (max-width: 600px) {
+    .settingsUpdateTitle {
+      font-size: 24px;
+    }
+  
+    .settingsDeleteTitle {
+      font-size: 10px;
+    }
+  
+    .settingsForm > label {
+      font-size: 16px;
+    }
+  
+    .settingsForm > input {
+      height: 25px;
+    }
+  
+    .settingsSubmit {
+      width: 120px;
+    }
+  }

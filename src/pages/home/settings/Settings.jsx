@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { Context } from "../../../context/Context";
 import myApi from "../../../service/service";
 import { useNavigate } from "react-router";
+import axios from "axios";
 
 function Settings({ fetchPosts }) {
   const Navigate = useNavigate();
@@ -14,7 +15,7 @@ function Settings({ fetchPosts }) {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const { user, dispatch } = useContext(Context);
-  const PF = "https://veulesback.onrender.com/images/";
+  const [newProfilePic, setNewProfilePic] = useState(""); // Nouvel état pour stocker l'URL de la nouvelle photo de profil
 
   const isValidEmail = (email) => {
     // Expression régulière pour la validation de l'adresse e-mail
@@ -22,32 +23,38 @@ function Settings({ fetchPosts }) {
     return emailRegex.test(email);
   };
 
-  const handleDelete = async () => {
-    if (
-      window.confirm(
-        "Êtes-vous sûr de vouloir supprimer votre compte ainsi que vos articles ?"
-      )
-    ) {
-      try {
-        await myApi.deleteUser(user._id); // Supprimez le deuxième argument 'config'
-        dispatch({ type: "LOGOUT" });
-        fetchPosts();
-        Navigate("/");
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  };
+  // const handleDelete = async () => {
+  //   if (
+  //     window.confirm(
+  //       "Êtes-vous sûr de vouloir supprimer votre compte ainsi que vos articles ?"
+  //     )
+  //   ) {
+  //     try {
+  //       await myApi.deleteUser(user._id); // Supprimez le deuxième argument 'config'
+  //       dispatch({ type: "LOGOUT" });
+  //       fetchPosts();
+  //       Navigate("/");
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch({ type: "UPDATE_START" });
+
     const updatedUser = {
       userId: user._id,
       username,
       email,
       password,
     };
+
+    if (!file) {
+      setError("Veuillez sélectionner une photo de profil.");
+      return;
+    }
 
     if (
       username.trim() === "" ||
@@ -57,32 +64,45 @@ function Settings({ fetchPosts }) {
       setError("Veuillez remplir tous les champs du profil.");
       return;
     }
+
     if (!isValidEmail(email)) {
       setError("Veuillez fournir une adresse e-mail valide.");
       return;
     }
 
-    if (file) {
+    try {
       const data = new FormData();
       const filename = Date.now() + file.name;
       data.append("name", filename);
       data.append("file", file);
-      updatedUser.profilePic = filename;
+      data.append("upload_preset", "jycc7iqt");
 
-      try {
-        await myApi.post("/upload", data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
+      // Télécharger l'image sur Cloudinary
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/dmhbnekk4/image/upload",
+        data
+      );
 
-    try {
+      updatedUser.profilePic = response.data.secure_url; // Utiliser secure_url au lieu de public_id + format
+
+      // Mettre à jour les informations utilisateur dans le backend
       const res = await myApi.updateUser(user._id, updatedUser);
-      setSuccess(true);
-      dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
-      if (res.status === 200) {
-        // console.log("User updated successfully");
-      }
+
+      // Mettre à jour l'URL de la photo de profil avec la nouvelle URL de l'image
+      setNewProfilePic(response.data.secure_url); // Stocker l'URL de la nouvelle photo de profil dans l'état local
+      dispatch({
+        type: "UPDATE_PROFILE_PIC",
+        payload: response.data.secure_url,
+      });
+
+      const updatedUserInfo = {
+        ...user,
+        username: res.data.username,
+        email: res.data.email,
+        profilePic: response.data.secure_url,
+      };
+      dispatch({ type: "UPDATE_SUCCESS", payload: updatedUserInfo });
+
       Navigate("/");
     } catch (error) {
       dispatch({ type: "UPDATE_FAILURE" });
@@ -94,16 +114,16 @@ function Settings({ fetchPosts }) {
       <div className="settingsWrapper">
         <div className="settingsTitles">
           <span className="settingsUpdateTitle">Modifie ton compte</span>
-          <span className="settingsDeleteTitle" onClick={handleDelete}>
+          {/* <span className="settingsDeleteTitle" onClick={handleDelete}>
             Supprime ton compte
-          </span>
+          </span> */}
         </div>
         <form className="settingsForm" onSubmit={handleSubmit}>
           <label>Photo de Profil</label>
           <div className="settingsPP">
             {user.profilePic && (
               <img
-                src={file ? URL.createObjectURL(file) : PF + user.profilePic}
+                src={file ? URL.createObjectURL(file) : user.profilePic}
                 alt=""
               />
             )}

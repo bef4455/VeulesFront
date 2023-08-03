@@ -4,13 +4,21 @@ import frLocale from "date-fns/locale/fr";
 import { Link } from "react-router-dom";
 
 function Post({ post }) {
-  const PF = "https://veulesback.onrender.com/images/";
+  const cloudinaryBaseUrl =
+    "https://res.cloudinary.com/dmhbnekk4/image/upload/";
+  const isCloudinaryUrl = post.photo.startsWith(cloudinaryBaseUrl);
   const currentDate = new Date();
   const formattedDate = format(currentDate, "PPP", { locale: frLocale });
 
   return (
     <div className="post" key={post.id}>
-      {post.photo && <img className="postImg" src={PF + post.photo} alt="" />}
+      {post.photo && (
+        <img
+          className="postImg"
+          src={isCloudinaryUrl ? post.photo : cloudinaryBaseUrl + post.photo}
+          alt=""
+        />
+      )}
       <div className="postInfo">
         <div className="postCats">
           {post.categories.map((c) => (

@@ -51,3 +51,18 @@
     margin-left: 15px;
 }
 
+@media only screen and (max-width: 600px) {
+    .topLeft, .topRight {
+      flex: 1; /* Ajustez la flexibilité pour occuper moins d'espace */
+    }
+  
+    .topListItem {
+      font-size: 10px; /* Réduisez la taille de police pour une meilleure lisibilité sur les petits écrans */
+      margin-right: 7px; /* Réduisez la marge entre les éléments pour économiser de l'espace */
+    }
+  
+    .topSearchIcon {
+      font-size: 16px; /* Réduisez la taille de l'icône de recherche */
+      margin-left: 10px; /* Réduisez la marge à gauche de l'icône de recherche */
+    }
+  }

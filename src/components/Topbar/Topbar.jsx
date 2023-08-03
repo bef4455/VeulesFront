@@ -5,7 +5,6 @@ import { Context } from "../../context/Context";
 
 function Topbar() {
   const { user, dispatch } = useContext(Context);
-  const PF = "https://veulesback.onrender.com/images/";
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
@@ -27,11 +26,11 @@ function Topbar() {
               INFOS
             </Link>
           </li>
-          <li className="topListItem">
+          {/* <li className="topListItem">
             <Link className="link" to="/">
               CONTACT
             </Link>
-          </li>
+          </li> */}
           <li className="topListItem">
             <Link className="link" to="/write">
               ECRIRE
@@ -45,7 +44,7 @@ function Topbar() {
       <div className="topRight">
         {user ? (
           <Link to="/settings">
-            <img className="topImg" src={PF + user.profilePic} alt="" />
+            <img className="topImg" src={user.profilePic} alt="" />
           </Link>
         ) : (
           <ul className="topList">

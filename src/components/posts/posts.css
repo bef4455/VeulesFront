@@ -4,3 +4,10 @@
     flex-wrap: wrap;
     margin: 60px;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .posts {
+      margin: 30px; /* Réduisez la marge pour économiser de l'espace */
+    }
+  }

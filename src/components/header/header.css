@@ -32,3 +32,24 @@
     background-size: cover;
     background-position: center 8%;
   }
+
+  @media only screen and (max-width: 600px) {
+    .header {
+      margin-top: 30px; /* Réduisez la marge supérieure pour économiser de l'espace */
+    }
+  
+    .headerTitleSm {
+      top: 6%; /* Ajustez la position verticale pour mieux s'adapter aux petits écrans */
+      font-size: 13px; /* Réduisez la taille de police pour une meilleure lisibilité */
+    }
+  
+    .headerTitleLg {
+      top: 7%; /* Ajustez la position verticale pour mieux s'adapter aux petits écrans */
+      font-size: 45px; /* Réduisez la taille de police pour une meilleure lisibilité */
+    }
+  
+    .headerImg {
+      height: 300px; /* Réduisez la hauteur de l'image */
+      margin-top: 55px; /* Réduisez la marge supérieure de l'image */
+    }
+  }

@@ -4,3 +4,13 @@
     align-items: center;
     height: 100vh;
   }
+
+
+  
+  @media (max-width: 480px) {
+    /* Par exemple, si la largeur de l'écran est inférieure ou égale à 480px */
+    .video-container {
+      height: 60vh; /* Ajustez la hauteur selon vos besoins */
+    }
+  }
+  

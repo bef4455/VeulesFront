@@ -76,3 +76,23 @@ video{
    border-radius: 10px;
 } 
 
+@media only screen and (max-width: 600px) {
+    .registerTitle {
+      font-size: 30px;
+    }
+  
+    .registerForm {
+      padding: 20px;
+      height: auto;
+    }
+  
+    .registerButton {
+      margin-top: 15px;
+    }
+  
+    .registerLoginButton {
+      top: 60px;
+      right: 10px;
+      padding: 8px;
+    }
+  }

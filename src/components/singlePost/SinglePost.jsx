@@ -12,7 +12,6 @@ function SinglePost({ fetchPosts }) {
   const [desc, setDesc] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
   const params = useParams();
-  const PF = "https://veulesback.onrender.com/images/";
   let { user } = useContext(Context);
   const Navigate = useNavigate();
 
@@ -70,7 +69,16 @@ function SinglePost({ fetchPosts }) {
     <div className="singlePost">
       <div className="singlePostWrapper">
         {post.photo && (
-          <img src={PF + post.photo} alt="" className="singlePostImg" />
+          <img
+            src={
+              post.photo.startsWith("https://res.cloudinary.com/")
+                ? post.photo
+                : "https://res.cloudinary.com/dmhbnekk4/image/upload/" +
+                  post.photo
+            }
+            alt=""
+            className="singlePostImg"
+          />
         )}
         {updateMode ? (
           <input
