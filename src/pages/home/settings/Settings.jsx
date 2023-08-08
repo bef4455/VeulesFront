@@ -15,7 +15,7 @@ function Settings({ fetchPosts }) {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const { user, dispatch } = useContext(Context);
-  const [newProfilePic, setNewProfilePic] = useState(""); // Nouvel état pour stocker l'URL de la nouvelle photo de profil
+  const [newProfilePic, setNewProfilePic] = useState(null); // Nouvel état pour stocker l'URL de la nouvelle photo de profil
 
   const isValidEmail = (email) => {
     // Expression régulière pour la validation de l'adresse e-mail
@@ -42,6 +42,7 @@ function Settings({ fetchPosts }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Form submitted!"); // Message de débogage
     dispatch({ type: "UPDATE_START" });
 
     const updatedUser = {
@@ -78,11 +79,12 @@ function Settings({ fetchPosts }) {
       data.append("upload_preset", "jycc7iqt");
 
       // Télécharger l'image sur Cloudinary
+      console.log("Uploading image to Cloudinary...");
       const response = await axios.post(
         "https://api.cloudinary.com/v1_1/dmhbnekk4/image/upload",
         data
       );
-
+      console.log("Cloudinary response:", response.data);
       updatedUser.profilePic = response.data.secure_url; // Utiliser secure_url au lieu de public_id + format
 
       // Mettre à jour les informations utilisateur dans le backend
@@ -105,6 +107,7 @@ function Settings({ fetchPosts }) {
 
       Navigate("/");
     } catch (error) {
+      console.log("Error during profile update:", error);
       dispatch({ type: "UPDATE_FAILURE" });
     }
   };
@@ -123,7 +126,10 @@ function Settings({ fetchPosts }) {
           <div className="settingsPP">
             {user.profilePic && (
               <img
-                src={file ? URL.createObjectURL(file) : user.profilePic}
+                src={
+                  newProfilePic ||
+                  (file ? URL.createObjectURL(file) : user.profilePic)
+                }
                 alt=""
               />
             )}

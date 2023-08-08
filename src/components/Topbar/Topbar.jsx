@@ -1,13 +1,21 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import "./Topbar.css";
 import { Link } from "react-router-dom";
-import { Context } from "../../context/Context";
+import { Context, ClearNewProfilePic } from "../../context/Context";
 
 function Topbar() {
   const { user, dispatch } = useContext(Context);
 
+  useEffect(() => {
+    return () => {
+      // Réinitialiser l'état newProfilePic lors de la déconnexion ou rechargement de la page
+      ClearNewProfilePic(dispatch);
+    };
+  }, [dispatch]);
+
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
+    ClearNewProfilePic(); // Appel de la fonction pour réinitialiser newProfilePic
     localStorage.clear();
   };
 
