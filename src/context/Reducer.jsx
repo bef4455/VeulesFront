@@ -1,7 +1,3 @@
-export const ClearNewProfilePic = () => ({
-  type: "CLEAR_NEW_PROFILE_PIC",
-});
-
 const Reducer = (state, action) => {
   switch (action.type) {
     case "LOGIN_START":
@@ -46,11 +42,7 @@ const Reducer = (state, action) => {
         isFetching: false,
         error: false,
       };
-    case "CLEAR_NEW_PROFILE_PIC":
-      return {
-        ...state,
-        newProfilePic: null,
-      };
+
     default:
       return state;
   }

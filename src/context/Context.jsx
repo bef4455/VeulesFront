@@ -10,14 +10,10 @@ const INITIAL_STATE = {
 };
 export const Context = createContext(INITIAL_STATE);
 
-// Déclaration de la fonction ClearNewProfilePic en dehors du composant ContextProvider
-export const ClearNewProfilePic = (dispatch) => {
-  dispatch({ type: "CLEAR_NEW_PROFILE_PIC" });
-};
-
 export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(Reducer, {
     user: JSON.parse(localStorage.getItem("user")) || null,
+    // ...
   });
 
   useEffect(() => {
