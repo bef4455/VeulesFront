@@ -71,7 +71,7 @@ function Register() {
           Un problème est survenu. Contactez Fab !!
         </span>
       )}
-      <video className="video" src={DJI_00534} autoPlay loop />
+      <video className="video" src={DJI_00534} autoPlay loop playsInline />
     </div>
   );
 }

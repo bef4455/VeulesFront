@@ -6,6 +6,36 @@
   }
 
 
+  .useful-addresses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .address {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .addressIcon {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  .addressInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .addressInfo h2,
+  .addressInfo p {
+    font-family: 'Varela Round', sans-serif; /* Utilisez la même police que .sidebarTitle */
+  }
+
+  
+
   
   @media (max-width: 480px) {
     /* Par exemple, si la largeur de l'écran est inférieure ou égale à 480px */
