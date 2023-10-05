@@ -64,6 +64,7 @@
   
     .postImg {
       height: 200px; /* Réduisez la hauteur de l'image */
+      object-fit: contain;
     }
   
     .postTitle {
