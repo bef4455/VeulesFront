@@ -74,7 +74,7 @@ function Login() {
           Enregistrer
         </Link>
       </button>
-      <video className="video" src={DJI_00534} autoPlay loop />
+      <video className="video" src={DJI_00534} autoPlay loop playsInline />
     </div>
   );
 }
