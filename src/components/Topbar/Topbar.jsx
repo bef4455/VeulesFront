@@ -26,6 +26,11 @@ function Topbar() {
               INFOS
             </Link>
           </li>
+          <li className="topListItem">
+            <Link className="link" to="/Peche">
+              PÊCHE
+            </Link>
+          </li>
           {/* <li className="topListItem">
             <Link className="link" to="/">
               CONTACT
