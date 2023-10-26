@@ -31,11 +31,6 @@ function Topbar() {
               PÊCHE
             </Link>
           </li>
-          {/* <li className="topListItem">
-            <Link className="link" to="/">
-              CONTACT
-            </Link>
-          </li> */}
           <li className="topListItem">
             <Link className="link" to="/write">
               ECRIRE

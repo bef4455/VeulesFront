@@ -6,6 +6,7 @@ import Login from "./pages/home/login/Login";
 import Settings from "./pages/home/settings/Settings";
 import Single from "./pages/home/single/Single";
 import Infos from "./pages/home/Infos/Infos";
+import Peche from "./pages/home/Peche/Peche";
 import Write from "./pages/home/write/Write";
 import NotFound from "./pages/home/NotFound/NotFound";
 import { useContext, useEffect, useState } from "react";
@@ -44,6 +45,7 @@ function App() {
           element={user ? <Settings fetchPosts={fetchPosts} /> : <Register />}
         />
         <Route path="/infos" element={user ? <Infos /> : <Register />} />
+        <Route path="/peche" element={user ? <Peche /> : <Register />} />
         <Route
           path="/post/:postId"
           element={<Single fetchPosts={fetchPosts} />}
