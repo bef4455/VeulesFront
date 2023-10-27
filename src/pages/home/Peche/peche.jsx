@@ -10,9 +10,7 @@ function Peche() {
           alt="Bannière de pêche"
         />
       </header>
-      <h1 className="titre">
-        Horaires des marées à Veules les Roses en Normandie
-      </h1>
+      <h1 className="titre">Horaires des marées à Veules les Roses</h1>
       <div className="maree-container">
         <iframe
           src="http://www.horaire-maree.fr/widget_complexe.php?port=Veules-les-Roses&allowed=true"
