@@ -44,8 +44,8 @@ function App() {
           path="/settings"
           element={user ? <Settings fetchPosts={fetchPosts} /> : <Register />}
         />
-        <Route path="/infos" element={user ? <Infos /> : <Register />} />
         <Route path="/peche" element={user ? <Peche /> : <Register />} />
+        <Route path="/infos" element={user ? <Infos /> : <Register />} />
         <Route
           path="/post/:postId"
           element={<Single fetchPosts={fetchPosts} />}
