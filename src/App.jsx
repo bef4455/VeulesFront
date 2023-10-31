@@ -6,7 +6,7 @@ import Login from "./pages/home/login/Login";
 import Settings from "./pages/home/settings/Settings";
 import Single from "./pages/home/single/Single";
 import Infos from "./pages/home/Infos/Infos";
-import Peche from "./pages/home/Peche/Peche";
+import Peche from "./pages/home/peche/peche";
 import Write from "./pages/home/write/Write";
 import NotFound from "./pages/home/NotFound/NotFound";
 import { useContext, useEffect, useState } from "react";
