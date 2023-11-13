@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import "./Peche.css";
+import "./peche.css";
 
 function Peche() {
   const photos = [
@@ -10,6 +10,7 @@ function Peche() {
     "https://raw.githubusercontent.com/bef4455/VeulesFront/main/public/IMG_3006.jpg",
     "https://raw.githubusercontent.com/bef4455/VeulesFront/main/public/IMG_3012.jpg",
     "https://raw.githubusercontent.com/bef4455/VeulesFront/main/public/IMG_8692.jpg",
+    "https://raw.githubusercontent.com/bef4455/VeulesFront/main/public/IMG_8695.jpg",
   ];
 
   const settings = {
@@ -18,6 +19,8 @@ function Peche() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
   };
 
   return (

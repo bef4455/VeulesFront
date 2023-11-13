@@ -40,6 +40,11 @@
   width: 25%; /* Ajustez la largeur selon vos besoins */
   margin: 0 auto;
 }
+.slick-track {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .slick-prev,
 .slick-next {
