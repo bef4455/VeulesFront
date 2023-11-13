@@ -31,13 +31,9 @@ function Peche() {
           alt="Bannière de pêche"
         />
       </header>
-      <h1 className="titre">Horaires des marées de Veules les Roses</h1>
-
       <div className="maree">
         <iframe
           src="https://www.horaire-maree.fr/maree/Veules-les-Roses/"
-          width="100%"
-          height="900px"
           frameBorder="0"
           scrolling="no"
         ></iframe>
