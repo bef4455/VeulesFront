@@ -104,48 +104,53 @@
 
 /* Styles pour les petits écrans (par exemple, smartphones) */
 @media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
   .banner {
     height: 250px;
     margin-top: 5px;
   }
+
   .banner img {
     transform: translateY(0);
   }
-.maree {
+
+  .maree {
     width: 200%; 
     transform-origin: 0 0;
     transform: translate(35px, 10px) scale(50%);
     height: 97rem; 
-    margin-left: -35px;
-  } 
+    margin-left: -28px;
+  }
 
   .maree iframe {
     height: 110%;
-  transform: translateY(-13%) scale(80%);
-    
-  } 
-  
+    transform: translateY(-13%) scale(0.8);
+    margin-right: -90px;
+  }
+
   .description {
-    font-size: 9px;
+    font-size: 12px; /* Ajustez la taille de la police pour une meilleure lisibilité */
     margin-top: -50rem;
   }
 
-
   .slick-slider {
-    width: 70%; /* Ajustez la largeur pour la version mobile */
+    width: 70%;
     margin-top: 2rem;
     margin-bottom: 20rem;
   }
+
   .slick-dots {
-    bottom: -20px; /* Ajustez la position verticale des dots selon vos besoins */
+    bottom: -20px;
   }
-  
+
   .slick-dots li {
-    margin: 0 1px; /* Ajustez la marge entre les dots selon vos besoins */
+    margin: 0 1px;
   }
-  
+
   .slick-dots button {
-    font-size: 12px; /* Ajustez la taille de la police des dots selon vos besoins */
-    line-height: 12px; /* Ajustez la hauteur de ligne des dots selon vos besoins */
+    font-size: 14px; /* Ajustez la taille de la police des dots pour une meilleure lisibilité */
+    line-height: 14px;
   }
 }
