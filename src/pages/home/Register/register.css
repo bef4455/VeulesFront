@@ -9,7 +9,7 @@ video{
 }
 
 .register{
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'roboto';
     height: calc(100vh - 50px);
     display: flex;
     flex-direction: column;
@@ -37,7 +37,7 @@ video{
     justify-content: center;
     padding: 50px;
     height: calc(40vh - 70px);
-    background-color: rgba(78, 78, 78, 0.479);
+    background-color: rgba(94, 94, 94, 0.399);
     color: whitesmoke;
 } 
 
@@ -48,8 +48,8 @@ video{
 
 .registerInput{
     padding: 10px;
-    background-color: white;
-    border: none;
+    /* background-color: transparent; */
+    border: 1px solid #ccc;
 } 
 
 .registerButton{
