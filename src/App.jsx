@@ -34,9 +34,12 @@ function App() {
     fetchPosts();
   }, []);
 
+  const isLoginPage = location.pathname === "/login";
+  const isRegisterPage = location.pathname === "/register";
+
   return (
     <div className="App">
-      <Topbar />
+      {!isLoginPage && !isRegisterPage && <Topbar />}
       <AnimatePresence exitBeforeEnter={false}>
         <Routes location={location}>
           <Route
