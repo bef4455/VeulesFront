@@ -27,7 +27,10 @@
     .header {
       margin-top: 30px; /* Réduisez la marge supérieure pour économiser de l'espace */
     }
-  
+    .headerLogo {
+      width: 200px;
+      height: auto;
+    }
     .headerTitleSm {
       top: 6%; /* Ajustez la position verticale pour mieux s'adapter aux petits écrans */
       font-size: 13px; /* Réduisez la taille de police pour une meilleure lisibilité */
@@ -39,7 +42,14 @@
     }
   
     .headerImg {
-      height: 300px; /* Réduisez la hauteur de l'image */
-      margin-top: 55px; /* Réduisez la marge supérieure de l'image */
+      height: 394px; /* Réduisez la hauteur de l'image */
+      margin-top: -83px; /* Réduisez la marge supérieure de l'image */
+      margin-bottom: 40px;
+    }
+    .sidebarItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
     }
   }

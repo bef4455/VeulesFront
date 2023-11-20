@@ -111,17 +111,19 @@
   .banner img {
     transform: translateY(0);
   }
-  .maree {
+.maree {
     width: 200%; 
     transform-origin: 0 0;
     transform: translate(35px, 10px) scale(50%);
     height: 97rem; 
-  }
+    margin-left: -35px;
+  } 
 
   .maree iframe {
     height: 110%;
-  transform: translateY(-13%);  
-  }
+  transform: translateY(-13%) scale(80%);
+    
+  } 
   
   .description {
     font-size: 9px;

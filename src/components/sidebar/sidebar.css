@@ -69,7 +69,9 @@
     }
   
     .sidebarItem > p {
-      padding: 20px; /* Réduisez le rembourrage du paragraphe */
+      padding: 18px; /* Réduisez le rembourrage du paragraphe */
+      text-align: center;
+      line-height: 1.5; 
     }
   
     .sidebarListItem {
