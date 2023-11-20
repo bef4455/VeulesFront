@@ -1,3 +1,4 @@
+// Importations existantes...
 import React from "react";
 import { format } from "date-fns";
 import frLocale from "date-fns/locale/fr";
@@ -40,7 +41,7 @@ function Post({ post }) {
           {format(new Date(post.createdAt), "PPP", { locale: frLocale })}
         </span>
       </div>
-      <p className="postDesc">{post.desc}</p>
+      <p className="postDesc" dangerouslySetInnerHTML={{ __html: post.desc }} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import "./Topbar.css";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
+import "./Topbar.css";
 
 function Topbar() {
   const { user, dispatch } = useContext(Context);

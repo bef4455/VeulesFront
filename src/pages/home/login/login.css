@@ -36,6 +36,7 @@ video{
     height: calc(35vh - 70px);
     background-color: rgba(78, 78, 78, 0.479);
     color: whitesmoke;
+    
 }
 
 .loginForm>label{

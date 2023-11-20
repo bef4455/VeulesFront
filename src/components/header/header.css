@@ -1,37 +1,27 @@
-.header{
-    margin-top: 60px;
+.header {
+  margin-top: 40px;
 }
 
-.headerTitles{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Lora', serif;
-    
+.headerTitles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Lora', serif;
 }
 
-.headerTitleSm{
-    position: absolute;
-    top: 7%;
-    font-size: 20px;
-    color: #364d8d;
+.headerLogo {
+  width: 280px; /* Ajustez la largeur de votre logo selon vos besoins */
+  height: auto; /* Ajustez la hauteur en conséquence */
 }
 
-.headerTitleLg{
-    position: absolute;
-    top: 7%;
-    font-size: 100px;
-    color: #0752c2;
+.headerImg {
+  width: 100%;
+  height: 700px;
+  margin-top: -130px;
+  background-image: url("https://raw.githubusercontent.com/bef4455/VeulesFront/main/public/IMG_3429.JPEG");
+  background-size: cover;
+  background-position: center 33%;
 }
-
-.headerImg{
-    width: 100%;
-    height: 700px;
-    margin-top: -100px;
-    background-image: url("https://raw.githubusercontent.com/bef4455/VeulesFront/main/public/IMG_3429.JPEG");
-    background-size: cover;
-    background-position: center 33%;
-  }
 
   @media only screen and (max-width: 600px) {
     .header {

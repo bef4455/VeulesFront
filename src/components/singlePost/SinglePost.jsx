@@ -25,6 +25,7 @@ function SinglePost({ fetchPosts }) {
       })
       .catch((e) => console.error(e));
   };
+
   useEffect(() => {
     fetchPost();
   }, []);
@@ -51,19 +52,12 @@ function SinglePost({ fetchPosts }) {
       );
       if (updatedPost.status === 200) {
         fetchPosts();
-
         Navigate("/");
       }
     } catch (error) {
       console.log(error);
     }
   };
-
-  // console.log(postId);
-
-  // if (!post) {
-  //   return <div className="loading">Loading...</div>;
-  // }
 
   return (
     <div className="singlePost">
@@ -126,7 +120,10 @@ function SinglePost({ fetchPosts }) {
             onChange={(e) => setDesc(e.target.value)}
           />
         ) : (
-          <p className="singlePostDesc">{desc}</p>
+          <div
+            className="singlePostDesc"
+            dangerouslySetInnerHTML={{ __html: desc }}
+          />
         )}
         {updateMode && (
           <button className="singlePostButton" onClick={handleUpdate}>

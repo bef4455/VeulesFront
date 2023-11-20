@@ -1,13 +1,21 @@
+import React from "react";
+import { motion } from "framer-motion";
 import "./single.css";
 import Sidebar from "../../../components/sidebar/Sidebar";
 import Singlepost from "../../../components/singlePost/SinglePost";
 
-function Single({ fetchPosts }) {
+const Single = ({ fetchPosts }) => {
   return (
-    <div className="single">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      className="single"
+    >
       <Singlepost fetchPosts={fetchPosts} />
       <Sidebar />
-    </div>
+    </motion.div>
   );
-}
+};
+
 export default Single;

@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import Slider from "react-slick";
 import "./peche.css";
 
@@ -24,20 +25,25 @@ function Peche() {
   };
 
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+    >
       <header className="banner">
-        <img
+        <motion.img
           src="https://raw.githubusercontent.com/bef4455/VeulesFront/main/public/IMG_7079.jpeg"
           alt="Bannière de pêche"
         />
       </header>
       <div className="maree">
         <iframe
-          src="https://www.horaire-maree.fr/maree/Veules-les-Roses/"
+          src="http://www.horaire-maree.fr/maree/Veules-les-Roses/"
           frameBorder="0"
           scrolling="no"
         ></iframe>
       </div>
+      <div className="separator"></div>
       <div className="description">
         <p>
           La pêche à la grise, c’est grisant. <br /> La crevette n’est pas loin
@@ -50,12 +56,16 @@ function Peche() {
       </div>
       <Slider {...settings}>
         {photos.map((photo, index) => (
-          <div key={index} className="photo">
-            <img src={photo} alt={`Photo ${index + 1}`} />
-          </div>
+          <motion.div key={index} className="photo">
+            <motion.img
+              src={photo}
+              alt={`Photo ${index + 1}`}
+              whileHover={{ scale: 1.1 }}
+            />
+          </motion.div>
         ))}
       </Slider>
-    </div>
+    </motion.div>
   );
 }
 

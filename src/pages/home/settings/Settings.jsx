@@ -1,6 +1,7 @@
+import React, { useState, useContext } from "react";
+import { motion } from "framer-motion";
 import "./settings.css";
 import Sidebar from "../../../components/sidebar/Sidebar";
-import { useContext, useState } from "react";
 import { Context } from "../../../context/Context";
 import myApi from "../../../service/service";
 import { useNavigate } from "react-router";
@@ -15,30 +16,12 @@ function Settings({ fetchPosts }) {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const { user, dispatch } = useContext(Context);
-  const [newProfilePic, setNewProfilePic] = useState(""); // Nouvel état pour stocker l'URL de la nouvelle photo de profil
+  const [newProfilePic, setNewProfilePic] = useState("");
 
   const isValidEmail = (email) => {
-    // Expression régulière pour la validation de l'adresse e-mail
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
-
-  // const handleDelete = async () => {
-  //   if (
-  //     window.confirm(
-  //       "Êtes-vous sûr de vouloir supprimer votre compte ainsi que vos articles ?"
-  //     )
-  //   ) {
-  //     try {
-  //       await myApi.deleteUser(user._id); // Supprimez le deuxième argument 'config'
-  //       dispatch({ type: "LOGOUT" });
-  //       fetchPosts();
-  //       Navigate("/");
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   }
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -77,19 +60,16 @@ function Settings({ fetchPosts }) {
       data.append("file", file);
       data.append("upload_preset", "jycc7iqt");
 
-      // Télécharger l'image sur Cloudinary
       const response = await axios.post(
         "https://api.cloudinary.com/v1_1/dmhbnekk4/image/upload",
         data
       );
 
-      updatedUser.profilePic = response.data.secure_url; // Utiliser secure_url au lieu de public_id + format
+      updatedUser.profilePic = response.data.secure_url;
 
-      // Mettre à jour les informations utilisateur dans le backend
       const res = await myApi.updateUser(user._id, updatedUser);
 
-      // Mettre à jour l'URL de la photo de profil avec la nouvelle URL de l'image
-      setNewProfilePic(response.data.secure_url); // Stocker l'URL de la nouvelle photo de profil dans l'état local
+      setNewProfilePic(response.data.secure_url);
       dispatch({
         type: "UPDATE_PROFILE_PIC",
         payload: response.data.secure_url,
@@ -110,13 +90,14 @@ function Settings({ fetchPosts }) {
   };
 
   return (
-    <div className="settings">
+    <motion.div
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="settings"
+    >
       <div className="settingsWrapper">
         <div className="settingsTitles">
           <span className="settingsUpdateTitle">Modifie ton compte</span>
-          {/* <span className="settingsDeleteTitle" onClick={handleDelete}>
-            Supprime ton compte
-          </span> */}
         </div>
         <form className="settingsForm" onSubmit={handleSubmit}>
           <label>Photo de Profil</label>
@@ -160,16 +141,28 @@ function Settings({ fetchPosts }) {
           <button className="settingsSubmit" type="submit">
             Modifier
           </button>
-          {error && <span className="settingsError">{error}</span>}
+          {error && (
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="settingsError"
+            >
+              {error}
+            </motion.span>
+          )}
           {success && (
-            <span className="settingsSuccess">
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="settingsSuccess"
+            >
               Le profil a bien été mis à jour.
-            </span>
+            </motion.span>
           )}
         </form>
       </div>
       <Sidebar />
-    </div>
+    </motion.div>
   );
 }
 

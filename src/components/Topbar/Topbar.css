@@ -1,57 +1,80 @@
-.top{
+/* Topbar.css */
+
+.top {
     width: 100%;
     height: 50px;
-    background-color:white;
+    background-color: white;
     position: sticky;
     top: 0;
     display: flex;
     align-items: center;
     font-family: 'Josefin Sans', sans-serif;
     z-index: 999;
-}
-
-.topLeft,.topRight{
+  }
+  
+  .topLeft,
+  .topRight {
     flex: 3;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.topCenter{
+  }
+  
+  .topCenter {
     flex: 6;
-}
-
-.topImg{
+  }
+  
+  .topImg {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
     cursor: pointer;
-}
-
-.topList{
+  }
+  
+  .topList {
     display: flex;
     justify-content: center;
     margin: 0;
     padding: 0;
     list-style: none;
-}
-
-.topListItem{
+  }
+  
+  .topListItem {
     margin-right: 20px;
     font-size: 18px;
     font-weight: 300;
     cursor: pointer;
-}
-
-.topSearchIcon{
+    position: relative;
+    text-decoration: none;
+    color: #333; /* Changez la couleur du texte selon votre design */
+  }
+  
+  .topListItem::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: 50% 50%;
+    width: 100%;
+    height: 1px;
+    background-color: #666; /* Changez la couleur de la ligne selon votre design */
+    transition: transform 250ms;
+  }
+  
+  .topListItem:hover::after {
+    transform: translateX(-50%) scaleX(1);
+  }
+  
+  .topSearchIcon {
     font-size: 18px;
     color: #666;
     cursor: pointer;
     margin-left: 15px;
-}
-
-@media only screen and (max-width: 600px) {
+  }
+  
+  @media only screen and (max-width: 600px) {
     .topLeft, .topRight {
       flex: 1; /* Ajustez la flexibilité pour occuper moins d'espace */
     }
@@ -66,3 +89,4 @@
       margin-left: 10px; /* Réduisez la marge à gauche de l'icône de recherche */
     }
   }
+  
