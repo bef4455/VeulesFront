@@ -82,6 +82,8 @@ function Write({ fetchPosts }) {
       desc,
     };
 
+    console.log("Request file:", file);
+
     if (file) {
       const data = new FormData();
       const filename = Date.now() + file.name;
@@ -101,14 +103,18 @@ function Write({ fetchPosts }) {
         );
 
         newPost.photo = response.data.public_id + "." + response.data.format;
+        console.log("Image URL from Cloudinary:", newPost.photo);
       } catch (error) {
         console.error("Error uploading image to Cloudinary:", error);
       }
     }
 
+    console.log("Request body:", newPost);
+
     try {
       const res = await myApi.createPost(newPost);
       fetchPosts();
+      console.log("Created post response:", res.data);
       Navigate("/post/" + res.data._id);
     } catch (error) {
       console.error("Error creating post:", error);
@@ -163,7 +169,11 @@ function Write({ fetchPosts }) {
           Publier
         </motion.button>
         <label htmlFor="fileInput" className="writeIconLabel">
-          <FontAwesomeIcon icon={faCamera} className="writeIcon" />
+          <FontAwesomeIcon
+            icon={faCamera}
+            className="writeIcon"
+            title="Ajouter une photo"
+          />
           <input
             type="file"
             id="fileInput"

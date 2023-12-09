@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { motion } from "framer-motion";
 import "./settings.css";
 import Sidebar from "../../../components/sidebar/Sidebar";
@@ -13,10 +13,8 @@ function Settings({ fetchPosts }) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState("");
   const { user, dispatch } = useContext(Context);
-  const [newProfilePic, setNewProfilePic] = useState("");
+  const [error, setError] = useState("");
 
   const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -32,10 +30,14 @@ function Settings({ fetchPosts }) {
       username,
       email,
       password,
+      profilePic: "",
     };
+
+    console.log("1 Updated user data:", updatedUser);
 
     if (!file) {
       setError("Veuillez sélectionner une photo de profil.");
+      dispatch({ type: "UPDATE_FAILURE" });
       return;
     }
 
@@ -45,46 +47,80 @@ function Settings({ fetchPosts }) {
       password.trim() === ""
     ) {
       setError("Veuillez remplir tous les champs du profil.");
+      dispatch({ type: "UPDATE_FAILURE" });
       return;
     }
 
     if (!isValidEmail(email)) {
       setError("Veuillez fournir une adresse e-mail valide.");
+      dispatch({ type: "UPDATE_FAILURE" });
       return;
     }
 
     try {
       const data = new FormData();
       const filename = Date.now() + file.name;
-      data.append("name", filename);
-      data.append("file", file);
+      data.append("file", file, filename);
       data.append("upload_preset", "jycc7iqt");
 
-      const response = await axios.post(
-        "https://api.cloudinary.com/v1_1/dmhbnekk4/image/upload",
-        data
-      );
+      console.log("FormData:", data);
 
-      updatedUser.profilePic = response.data.secure_url;
+      let cloudinaryResponse;
 
-      const res = await myApi.updateUser(user._id, updatedUser);
+      try {
+        cloudinaryResponse = await axios.post(
+          "https://api.cloudinary.com/v1_1/dmhbnekk4/image/upload",
+          data,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
 
-      setNewProfilePic(response.data.secure_url);
-      dispatch({
-        type: "UPDATE_PROFILE_PIC",
-        payload: response.data.secure_url,
-      });
+        console.log("Cloudinary response:", cloudinaryResponse);
 
-      const updatedUserInfo = {
-        ...user,
-        username: res.data.username,
-        email: res.data.email,
-        profilePic: response.data.secure_url,
-      };
-      dispatch({ type: "UPDATE_SUCCESS", payload: updatedUserInfo });
+        if (!cloudinaryResponse.data || !cloudinaryResponse.data.secure_url) {
+          throw new Error(
+            "La réponse de Cloudinary ne contenait pas l'URL sécurisée de l'image."
+          );
+        }
+      } catch (cloudinaryError) {
+        console.error("Error uploading file to Cloudinary:", cloudinaryError);
+        setError("Erreur lors du téléchargement de l'image sur Cloudinary.");
+        dispatch({ type: "UPDATE_FAILURE" });
+        return;
+      }
 
-      Navigate("/");
+      const publicId = cloudinaryResponse.data.public_id;
+      updatedUser.profilePic = cloudinaryResponse.data.secure_url;
+
+      try {
+        const mongoDBResponse = await myApi.updateUser(user._id, updatedUser);
+
+        dispatch({
+          type: "UPDATE_PROFILE_PIC",
+          payload: cloudinaryResponse.data.secure_url,
+        });
+
+        const updatedUserInfo = {
+          ...user,
+          username: mongoDBResponse.data.username,
+          email: mongoDBResponse.data.email,
+          profilePic: cloudinaryResponse.data.secure_url,
+        };
+
+        dispatch({ type: "UPDATE_SUCCESS", payload: updatedUserInfo });
+
+        Navigate("/");
+      } catch (updateError) {
+        console.error("Error updating user in MongoDB:", updateError);
+        setError("Erreur lors de la mise à jour du profil.");
+        dispatch({ type: "UPDATE_FAILURE" });
+      }
     } catch (error) {
+      console.log("General error:", error);
+      setError("Une erreur générale s'est produite.");
       dispatch({ type: "UPDATE_FAILURE" });
     }
   };
@@ -99,8 +135,12 @@ function Settings({ fetchPosts }) {
         <div className="settingsTitles">
           <span className="settingsUpdateTitle">Modifie ton compte</span>
         </div>
-        <form className="settingsForm" onSubmit={handleSubmit}>
-          <label>Photo de Profil</label>
+        <form
+          className="settingsForm"
+          onSubmit={handleSubmit}
+          encType="multipart/form-data"
+        >
+          {/* <label>Photo de Profil</label>
           <div className="settingsPP">
             {user.profilePic && (
               <img
@@ -114,10 +154,14 @@ function Settings({ fetchPosts }) {
             <input
               type="file"
               id="fileInput"
+              name="profilePic"
               style={{ display: "none" }}
-              onChange={(e) => setFile(e.target.files[0])}
+              onChange={(e) => {
+                setFile(e.target.files[0]);
+                console.log("Selected File:", e.target.files[0]);
+              }}
             />
-          </div>
+          </div> */}
           <label>Pseudo</label>
           <input
             type="text"
@@ -148,15 +192,6 @@ function Settings({ fetchPosts }) {
               className="settingsError"
             >
               {error}
-            </motion.span>
-          )}
-          {success && (
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="settingsSuccess"
-            >
-              Le profil a bien été mis à jour.
             </motion.span>
           )}
         </form>

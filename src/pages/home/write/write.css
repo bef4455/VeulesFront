@@ -99,7 +99,7 @@
     width: 52vw;
   }
 .ql-toolbar {
-  height: 10vh;
+  height: 107px; 
   flex-wrap: wrap;
 }
 .ql-container {

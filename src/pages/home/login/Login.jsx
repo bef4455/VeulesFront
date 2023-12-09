@@ -5,6 +5,7 @@ import { useContext, useRef, useState } from "react";
 import { Context } from "../../../context/Context";
 import myApi from "../../../service/service";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 function Login() {
   const userRef = useRef();
@@ -50,7 +51,13 @@ function Login() {
     <div className="login">
       <span className="loginTitle">Se Connecter</span>
       {error && <span className="errorMessage">{error}</span>}
-      <form className="loginForm" onSubmit={handleSubmit}>
+      <video className="video" src={DJI_00534} autoPlay loop playsInline />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        className="loginForm"
+      >
         <label>Pseudo</label>
         <input
           type="text"
@@ -65,16 +72,20 @@ function Login() {
           placeholder="Entre ton Mot de Passe..."
           ref={passwordRef}
         />
-        <button className="loginButton" type="submit" disabled={isFetching}>
+        <button
+          className="loginButton"
+          type="submit"
+          disabled={isFetching}
+          onClick={handleSubmit}
+        >
           {isFetching ? "Chargement..." : "Se Connecter"}
         </button>
-      </form>
+      </motion.div>
       <button className="loginRegisterButton">
         <Link className="link" to="/register">
           Enregistrer
         </Link>
       </button>
-      <video className="video" src={DJI_00534} autoPlay loop playsInline />
     </div>
   );
 }

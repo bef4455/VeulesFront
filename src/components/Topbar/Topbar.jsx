@@ -7,6 +7,7 @@ function Topbar() {
   const { user, dispatch } = useContext(Context);
 
   const handleLogout = () => {
+    console.log("Logging out...");
     dispatch({ type: "LOGOUT" });
     localStorage.clear();
   };
@@ -23,7 +24,7 @@ function Topbar() {
           </li>
           <li className="topListItem">
             <Link className="link" to="/infos">
-              INFOS
+              RECETTES
             </Link>
           </li>
           <li className="topListItem">
@@ -44,7 +45,12 @@ function Topbar() {
       <div className="topRight">
         {user ? (
           <Link to="/settings">
-            <img className="topImg" src={user.profilePic} alt="" />
+            {/* Utilisez la balise <img> pour afficher le logo */}
+            <img
+              className="topImg"
+              src=".\src\assets\profile.svg"
+              alt="Profile Logo"
+            />
           </Link>
         ) : (
           <ul className="topList">

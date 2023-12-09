@@ -3,12 +3,14 @@
 
 
 /* Styles de base (pour les écrans de taille moyenne et plus grands) */
+
 .banner {
   width: 100%;
   height: 700px;
   margin-top: -15px;
   overflow: hidden;
   position: relative;
+
 }
 
 .banner img {
@@ -17,16 +19,12 @@
   position: absolute;
   top: 0;
   left: 0;
-  transform: translateY(-40%);
+  transform: translateY(-20%);
+}
+.maree-section{
+  margin-top: -200px;
 }
 
-.titre {
-  margin-top: 2%;
-  margin-bottom: 3%;
-  text-align: center;
-  font-family: 'Lora', serif;
-  font-size: 25px;
-}
 
 .maree {
   position: relative;
@@ -40,59 +38,30 @@
   width: 100%;
   height: 100%;
   clip-path: polygon(0 10%, 100% 10%, 100% 100%, 0 100%); 
+  
 } 
-.separator {
-  width: 30%;
-  height: 2px;
-  background-color: #ccc; /* Couleur de la ligne de séparation */
-  margin-top: 60px; /* Ajustez la marge selon vos besoins */
-  margin-bottom: 30px; /* Ajustez la marge selon vos besoins */
-  margin-left: auto; /* Aligne à gauche */
-  margin-right: auto;
+
+.nouveau-bloc {
+
+  padding: 20px; 
 }
+
 .description {
   text-align: center;
   margin-top: 7%;
   margin-bottom: 3%;
   font-family: 'Lora', serif;
   font-size: 25px;
+  
 }
-
-/* Style pour le carrousel */
+.photo-section {
+  margin-bottom: 60px; /* Ajoutez la marge souhaitée en bas de la section */
+}
 .slick-slider {
-  width: 25%; /* Ajustez la largeur selon vos besoins */
+  width: 25%; 
   margin: 0 auto;
 }
 
-.slick-track {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.slick-prev,
-.slick-next {
-  font-size: 30px;
-  color: #fff;
-}
-
-.slick-prev {
-  left: -40px;
-}
-
-.slick-next {
-  right: -40px;
-}
-
-.slick-dots {
-  bottom: -30px;
-}
-
-.slick-dots li {
-  margin: 0 4px;
-}
-
-/* Style pour les photos dans le carrousel */
 .slick-slide img {
   width: 100%;
   height: auto;
@@ -115,7 +84,11 @@
   .banner img {
     transform: translateY(0);
   }
-
+  .maree-section {
+    
+    height: 900px;
+  }
+ 
   .maree {
     width: 200%; 
     transform-origin: 0 0;
@@ -129,20 +102,22 @@
     transform: translateY(-13%) scale(0.8);
     margin-right: -90px;
   }
+  
+  .nouveau-bloc {
+   
+    padding: 20px;
+  }
 
   .description {
-    font-size: 12px; /* Ajustez la taille de la police pour une meilleure lisibilité */
-    margin-top: -50rem;
+    font-size: 18px; /* Ajustez la taille de la police pour une meilleure lisibilité */
+    margin-top: 2%; /* Ajustez la marge selon vos besoins */
+    margin-bottom: 2%; /* Ajustez la marge selon vos besoins */
   }
 
   .slick-slider {
     width: 70%;
     margin-top: 2rem;
     margin-bottom: 20rem;
-  }
-
-  .slick-dots {
-    bottom: -20px;
   }
 
   .slick-dots li {

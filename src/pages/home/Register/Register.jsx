@@ -1,5 +1,6 @@
 import "./register.css";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import DJI_00534 from "../../../assets/DJI_00534.mp4";
 import { useState } from "react";
 import myApi from "../../../service/service";
@@ -35,32 +36,39 @@ function Register() {
   return (
     <div className="register">
       <span className="registerTitle">Créer un compte</span>
-      <form className="registerForm" onSubmit={handleSubmit}>
-        <label>Pseudo</label>
-        <input
-          type="text"
-          className="registerInput"
-          placeholder="Entre ton Pseudo"
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <label>Email</label>
-        <input
-          type="text"
-          className="registerInput"
-          placeholder="Entre ton email..."
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label>Mot de Passe</label>
-        <input
-          type="password"
-          className="registerInput"
-          placeholder="Entre ton Mot de Passe..."
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button className="registerButton" type="sumbit" disabled={isLoading}>
-          {isLoading ? "Chargement..." : "S'enregister"}
-        </button>
-      </form>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        className="registerFormContainer" // Ajoutez une classe pour le conteneur du formulaire
+      >
+        <form className="registerForm" onSubmit={handleSubmit}>
+          <label>Pseudo</label>
+          <input
+            type="text"
+            className="registerInput"
+            placeholder="Entre ton Pseudo"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <label>Email</label>
+          <input
+            type="text"
+            className="registerInput"
+            placeholder="Entre ton email..."
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <label>Mot de Passe</label>
+          <input
+            type="password"
+            className="registerInput"
+            placeholder="Entre ton Mot de Passe..."
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button className="registerButton" type="submit" disabled={isLoading}>
+            {isLoading ? "Chargement..." : "S'enregister"}
+          </button>
+        </form>
+      </motion.div>
       <button className="registerLoginButton">
         <Link className="link" to="/login">
           Se Connecter

@@ -38,7 +38,8 @@ myApi.updatePost = (postId, username, title, desc) => {
     return myApi.patch(`/posts/${postId}`, { username, title, desc })
 }
 myApi.updateUser = (userId, updatedUser) => {
-    return myApi.patch(`/users/${userId}`, updatedUser)
+    console.log("Request body for updateUser:", updatedUser); // Ajoutez ce log
+    return myApi.patch(`/users/${userId}`, updatedUser);
 }
 myApi.deleteUser = (userId) => {
     return myApi.delete(`/users/${userId}`)

@@ -36,7 +36,6 @@ video{
     height: calc(35vh - 70px);
    background-color: rgba(94, 94, 94, 0.399);
     color: whitesmoke;
-    
 }
 
 .loginForm>label{
@@ -66,7 +65,7 @@ video{
 
 .loginRegisterButton{
    position: absolute; 
-   top: 60px;
+   top: 13px;
    right: 20px;
    background-color:lightcoral;
    cursor: pointer;

@@ -1,8 +1,6 @@
-// App.js
-
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import Topbar from "./components/Topbar/Topbar";
 import Register from "./pages/home/Register/Register";
 import Home from "./pages/home/Home";
