@@ -46,11 +46,7 @@ function Topbar() {
         {user ? (
           <Link to="/settings">
             {/* Utilisez la balise <img> pour afficher le logo */}
-            <img
-              className="topImg"
-              src="veulesFront\public\profil.png"
-              alt="Profile Logo"
-            />
+            <img className="topImg" src="\profil.png" alt="Profile Logo" />
           </Link>
         ) : (
           <ul className="topList">
