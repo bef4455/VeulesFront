@@ -37,11 +37,11 @@ function Post({ post }) {
           <span className="postTitle">{post.title}</span>
         </Link>
         <hr />
-        <span className="postDate">
-          {format(new Date(post.createdAt), "PPP", { locale: frLocale })}
-        </span>
       </div>
       <p className="postDesc" dangerouslySetInnerHTML={{ __html: post.desc }} />
+      <span className="postDate">
+        {format(new Date(post.createdAt), "PPP", { locale: frLocale })}
+      </span>
     </div>
   );
 }

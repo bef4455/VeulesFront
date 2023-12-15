@@ -48,7 +48,7 @@ function Topbar() {
             {/* Utilisez la balise <img> pour afficher le logo */}
             <img
               className="topImg"
-              src=".\src\assets\profile.svg"
+              src=".\src\assets\profil.png"
               alt="Profile Logo"
             />
           </Link>
