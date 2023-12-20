@@ -1,26 +1,19 @@
-.header {
-  margin-top: 40px;
-}
+
 
 .headerTitles {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Lora', serif;
-}
-
-.headerLogo {
-  width: 280px; /* Ajustez la largeur de votre logo selon vos besoins */
-  height: auto; /* Ajustez la hauteur en conséquence */
+  position: relative;
 }
 
 .headerImg {
   width: 100%;
-  height: 700px;
-  margin-top: -130px;
+  height: 900px;
   background-image: url("https://raw.githubusercontent.com/bef4455/VeulesFront/main/public/IMG_3429.JPEG");
   background-size: cover;
-  background-position: center 33%;
+  background-position: center 27%;
+  
 }
 
   @media only screen and (max-width: 600px) {

@@ -18,7 +18,7 @@ const Home = ({ posts }) => {
       <div className="home">
         <Outlet />
         <Posts posts={posts} />
-        <Sidebar />
+        {/* <Sidebar /> */}
       </div>
     </motion.div>
   );

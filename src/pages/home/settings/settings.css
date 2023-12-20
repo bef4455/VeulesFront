@@ -17,6 +17,7 @@
   font-size: 30px;
   margin-bottom: 20px;
   color: lightcoral;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .settingsDeleteTitle{
@@ -28,6 +29,7 @@
 .settingsForm{
  display: flex;
  flex-direction: column;  
+ font-family: 'Roboto Condensed', sans-serif;
 }
 
 .settingsPP{
@@ -80,6 +82,7 @@ background-color: rgb(180, 58, 5);
 padding: 10px;
 margin-top: 20px;
 cursor: pointer;
+font-family: 'Roboto Condensed', sans-serif;
 }
 
 .settingsError {

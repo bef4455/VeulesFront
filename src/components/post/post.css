@@ -1,11 +1,16 @@
 .post {
   width: 385px;
   margin: 0px 25px 40px 25px;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1); /* Ajoute une bordure diffuse */
+ 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: box-shadow 0.3s ease;
+}
+.post:hover {
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.1); /* Effet de surbrillance au survol */
+  transition: box-shadow 0.3s ease; /* Ajoute une transition au survol */
 }
 .postImg {
   width: 85%;
@@ -23,7 +28,7 @@
 }
 
 .postCat{
-    font-family: 'Varela', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
     font-size: 11px;
     color: #be9656;
     line-height: 20px;
@@ -33,7 +38,7 @@
 }
 
 .postTitle{
-    font-family: StandardCT,sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
     font-size: 20px;
     font-weight: 700;
     margin-top: 15px;
@@ -49,7 +54,7 @@
 }
 
 .postDesc{
-    font-family: 'Varela Round', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
     font-size: 14px;
     color: #444;
     line-height: 24px;

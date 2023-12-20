@@ -196,7 +196,7 @@ function Settings({ fetchPosts }) {
           )}
         </form>
       </div>
-      <Sidebar />
+      {/* <Sidebar /> */}
     </motion.div>
   );
 }

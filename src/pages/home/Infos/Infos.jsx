@@ -100,13 +100,13 @@ const Infos = () => {
 
   return (
     <div>
+      <img
+        src="./public/pexels-photo-3952075.jpeg"
+        alt="Bannière"
+        className="banner-image"
+      />
       <div className="banner">
         <h1 className="titre">Recettes</h1>
-        <img
-          src="/pexels-photo-3952075.jpeg"
-          alt="Bannière"
-          className="banner-image"
-        />
       </div>
       <div className="recipes-container">
         <div className="recipe-cards">

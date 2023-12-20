@@ -1,10 +1,27 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
+import logo from "/noirlogo.png";
 import "./Topbar.css";
 
 function Topbar() {
   const { user, dispatch } = useContext(Context);
+  const [scrolling, setScrolling] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setScrolling(true);
+    } else {
+      setScrolling(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleLogout = () => {
     console.log("Logging out...");
@@ -12,9 +29,15 @@ function Topbar() {
     localStorage.clear();
   };
 
+  if (!user) {
+    return null;
+  }
+
   return (
-    <div className="top">
-      <div className="topLeft"></div>
+    <div className={`top ${scrolling ? "topScrolled" : ""}`}>
+      <div className="topLeft">
+        <img className="topLogo" src={logo} alt="Logo" />
+      </div>
       <div className="topCenter">
         <ul className="topList">
           <li className="topListItem">

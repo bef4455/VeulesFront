@@ -49,7 +49,7 @@ function Login() {
 
   return (
     <div className="login">
-      <span className="loginTitle">Se Connecter</span>
+      <span className="loginTitle">SE CONNECTER</span>
       {error && <span className="errorMessage">{error}</span>}
       <video className="video" src={DJI_00534} autoPlay loop playsInline />
       <motion.div

@@ -35,7 +35,7 @@ function Register() {
 
   return (
     <div className="register">
-      <span className="registerTitle">Créer un compte</span>
+      <span className="registerTitle">CRÉER UN COMPTE</span>
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}

@@ -1,31 +1,31 @@
+
 .banner {
-  position: relative;
   margin-bottom: 70px;
 }
-
+.banner-image {
+  width: 100%;
+  height: 910px;
+  object-fit: cover;
+  position: absolute;
+}
 .titre {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 9em; /* Ajustez la taille selon vos besoins */
+  font-size: 9em; 
+  font-family: 'Roboto Condensed', sans-serif;
   color: white;
   text-align: center;
   z-index: 1;
 }
 
-.banner-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  /* Ajoutez d'autres styles nécessaires pour l'image ici */
-}
-
 .recipes-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
+  max-width: 1000px;
+  margin: 330px auto 0;
+  font-family: 'Roboto Condensed', sans-serif;
   display: flex;
+  margin-bottom: 50px;
 }
 
 .recipe-cards {
@@ -112,42 +112,3 @@
   animation: fadeIn 0.8s ease;
 }
 
-/* Styles pour les écrans étroits (mobiles) */
-@media only screen and (max-width: 600px) {
-  .banner h1 {
-    font-size: 50px;
-  }
-
-  .banner img {
-    height: auto; /* Ajustez selon vos besoins */
-  }
-
-  .recipe-cards {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .recipe-card {
-    width: 80%;
-    margin-bottom: 20px;
-  }
-
-  .recipe-details {
-    margin-right: 0;
-  }
-
-  .recipe-details img {
-    width: 100%;
-    max-height: 200px; /* Ajustez selon vos besoins */
-  }
-
-  .recipe-details h2 {
-    font-size: 18px; /* Ajustez selon vos besoins */
-  }
-
-  .ingredients ul,
-  .instructions ol {
-    padding-left: 0px;
-    font-size: 13px;
-  }
-}

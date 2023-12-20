@@ -57,6 +57,7 @@ video{
     color: white;
     border-radius: 10%;
     padding: 10px;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 .loginButton:disabled{
     cursor:not-allowed;
