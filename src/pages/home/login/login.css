@@ -7,6 +7,31 @@ video{
     object-fit:cover;
     z-index: -1;
 }
+video::-webkit-media-controls {
+    display: none !important;
+}
+
+video::-moz-media-controls-play-button {
+    display: none !important;
+}
+.loading-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px; /* Hauteur de la barre de chargement */
+  background-color: #3498db; /* Couleur de fond de la barre de chargement */
+}
+
+.progress {
+  height: 100%;
+  background-color: #2ecc71; /* Couleur de la barre de progression */
+  transition: width 0.3s ease; /* Animation de la transition de la barre de progression */
+}
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease; /* Animation de la transition de l'opacité */
+  }
 .login{
     font-family: 'roboto';
     height: calc(100vh - 50px);
@@ -75,6 +100,7 @@ video{
    color: white;
    border-radius: 10px;
 }
+
 
 .errorMessage{
     color: red;

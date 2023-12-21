@@ -1,4 +1,5 @@
 import "./login.css";
+
 import { Link } from "react-router-dom";
 import DJI_00534 from "../../../assets/DJI_00534.mp4";
 import { useContext, useRef, useState } from "react";
@@ -13,11 +14,13 @@ function Login() {
   const Navigate = useNavigate();
   const { dispatch, isFetching } = useContext(Context);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     dispatch({ type: "LOGIN_START" });
+    setIsLoading(true);
 
     try {
       const res = await myApi.post("/auth/login", {
@@ -44,6 +47,8 @@ function Login() {
       } else {
         setError("Une erreur s'est produite. Veuillez réessayer");
       }
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -51,7 +56,21 @@ function Login() {
     <div className="login">
       <span className="loginTitle">SE CONNECTER</span>
       {error && <span className="errorMessage">{error}</span>}
-      <video className="video" src={DJI_00534} autoPlay loop playsInline />
+      <video
+        className="video"
+        src={DJI_00534}
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+      {/* Ajoutez la barre de chargement ici */}
+      <div className={`loading-bar ${isLoading ? "" : "fade-out"}`}>
+        <div
+          className="progress"
+          style={{ width: isLoading ? "100%" : "0" }}
+        ></div>
+      </div>
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -72,13 +91,14 @@ function Login() {
           placeholder="Entre ton Mot de Passe..."
           ref={passwordRef}
         />
+
         <button
           className="loginButton"
           type="submit"
-          disabled={isFetching}
+          disabled={isFetching || isLoading}
           onClick={handleSubmit}
         >
-          {isFetching ? "Chargement..." : "Se Connecter"}
+          {isLoading ? "Chargement..." : "Se Connecter"}
         </button>
       </motion.div>
       <button className="loginRegisterButton">

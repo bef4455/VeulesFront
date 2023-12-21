@@ -101,7 +101,7 @@ const Infos = () => {
   return (
     <div>
       <img
-        src="./public/pexels-photo-3952075.jpeg"
+        src="./pexels-photo-3952075.jpeg"
         alt="Bannière"
         className="banner-image"
       />
