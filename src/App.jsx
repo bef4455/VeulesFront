@@ -40,10 +40,7 @@ function App() {
       {!isLoginPage && !isRegisterPage && <Topbar />}
       <AnimatePresence exitBeforeEnter={false}>
         <Routes location={location}>
-          <Route
-            path="/"
-            element={user ? <Home posts={posts} /> : <Register />}
-          />
+          <Route path="/" element={user ? <Home posts={posts} /> : <Login />} />
           <Route path="/register" element={user ? <Home /> : <Register />} />
           <Route path="/login" element={user ? <Home /> : <Login />} />
           <Route
