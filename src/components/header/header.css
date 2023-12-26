@@ -18,26 +18,28 @@
 
   @media only screen and (max-width: 600px) {
     .header {
-      margin-top: 30px; /* Réduisez la marge supérieure pour économiser de l'espace */
+      margin-top: 30px;
     }
     .headerLogo {
       width: 200px;
       height: auto;
     }
     .headerTitleSm {
-      top: 6%; /* Ajustez la position verticale pour mieux s'adapter aux petits écrans */
-      font-size: 13px; /* Réduisez la taille de police pour une meilleure lisibilité */
+      top: 6%; 
+      font-size: 13px;
     }
   
     .headerTitleLg {
-      top: 7%; /* Ajustez la position verticale pour mieux s'adapter aux petits écrans */
-      font-size: 45px; /* Réduisez la taille de police pour une meilleure lisibilité */
+      top: 7%;
     }
   
     .headerImg {
-      height: 394px; /* Réduisez la hauteur de l'image */
-      margin-top: -83px; /* Réduisez la marge supérieure de l'image */
-      margin-bottom: 40px;
+      width: 100%;
+      background-size: cover;
+      background-position: center 25%;
+      height: 394px; 
+      margin-top: -28px; 
+      margin-bottom: 92px;
     }
     .sidebarItem {
       display: flex;

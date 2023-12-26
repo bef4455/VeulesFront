@@ -3,9 +3,9 @@
   flex-direction: column;
   align-items: center;
   justify-content:initial;
-  min-height: 100vh;
+  min-height: 122vh;
   margin: auto;
-  margin-top: -160px;
+  margin-top: -243px;
 }
 
 .header-container {
@@ -14,7 +14,7 @@
   text-align: center;
   background-color: white;
   border-radius: 10px;
-  padding: 20px;
+  padding: 50px;
 }
 .siteSuperTitle {
   font-size: 36px;
@@ -23,10 +23,11 @@
   font-weight: bold;
   font-style: italic;
   font-size: 27px;
-  margin-top: 20px;
+  margin-top: 41px;
   margin-bottom: 40px;
 }
 .siteDescription {
+  transform: translateY(-40%);
   font-family: 'Roboto Condensed', sans-serif;
   font-style: italic;
   font-size: 23px;
@@ -34,6 +35,50 @@
   margin-bottom: 10px;
   max-width: 1700px;
   text-align: center;
+  line-height: 2;
+}
+.fade-in {
+  opacity: 1 !important;
+}
+
+.fade-in-delay1 {
+  opacity: 0;
+}
+
+.fade-in-delay2 {
+  opacity: 0;
+}
+
+.fade-in-delay3 {
+  opacity: 0;
+}
+
+.fade-in {
+  transition: opacity 2s ease-in-out;
+}
+
+.TitrePost {
+  font-size: 30px;
+  position: relative;
+}
+
+.TitrePost::before,
+.TitrePost::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: #797979; /* Couleur des traits */
+  width: 90px; /* Longueur des traits */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.TitrePost::before {
+  left: -120px; /* Ajustez la position du trait de gauche */
+}
+
+.TitrePost::after {
+  right: -120px; /* Ajustez la position du trait de droite */
 }
 
 .description-container {
@@ -104,14 +149,120 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  margin-top: 40px;
+  align-items: stretch;
 }
 
 .post {
   margin-bottom: 20px;
 }
 
+.scrollUpIcon{
+  margin-top: 60px;
+  cursor: pointer;
+}
+.scrollUpIcon.hidden {
+  opacity: 0;
+  transition: opacity 0s ease-in-out; /* Ajoutez une transition pour un fondu en douceur */
+}
+
+/* Définissez l'opacité normale lorsque la classe n'est pas présente */
+.scrollUpIcon {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out; /* Ajoutez une transition pour un fondu en douceur */
+}
 @media only screen and (max-width: 600px) {
-  .posts {
+  .header-container {
+    text-align: center;
+    background-color: white;
+    border-radius: 2px;
+    max-width: 60% !important;
+  }
+  .siteSuperTitle {
+    font-size: 21px; 
+    display: flex;
     flex-direction: column;
+    align-items: center;
+  }
+  .siteSuperTitle span {
+    font-size: 30px; /* Taille de police pour "BIENVENUE" */
+  }
+  .siteTitle {
+    font-size: 13px; 
+    margin-top: 15px; 
+    margin-bottom: 30px; 
+  }
+
+  .siteDescription {
+    transform: translateY(-20%);
+    margin-top: 35px;
+    font-size: 18px; 
+    min-height: 15vh;
+    justify-content: center;
+    align-items: center;  
+    line-height: 2;
+  }
+  .fade-in {
+    opacity: 1 !important;
+  }
+  
+  .fade-in-delay1 {
+    opacity: 0;
+  }
+  
+  .fade-in-delay2 {
+    opacity: 0;
+  }
+  
+  .fade-in-delay3 {
+    opacity: 0;
+  }
+  
+  .fade-in {
+    transition: opacity 2s ease-in-out;
+  }
+  .TitrePost{
+    font-size: 20px;
+  }
+  .TitrePost::before,
+.TitrePost::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: #797979; /* Couleur des traits */
+  width: 50px; /* Longueur des traits */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.TitrePost::before {
+  left: -60px; /* Ajustez la position du trait de gauche */
+}
+
+.TitrePost::after {
+  right: -60px; /* Ajustez la position du trait de droite */
+}
+  .description-container {
+    margin-top: 15px; 
+    margin-bottom: 5px; 
+    max-width: 100%; 
+  }
+
+  .posts-header {
+    margin: 15px 0; 
+  }
+
+  .posts-container {
+    min-height: 30vh; 
+    margin: 10px; 
+  }
+
+  .posts {
+    flex-direction: column; 
+  }
+
+  .post {
+    margin-bottom: 60px; 
+    width: 80%;
   }
 }

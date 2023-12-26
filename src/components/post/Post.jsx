@@ -18,12 +18,15 @@ function Post({ post }) {
 
   return (
     <div className="post" key={post.id}>
-      {post.photo && ( // Vérification pour afficher l'image si post.photo est définie
-        <img
-          className="postImg"
-          src={isCloudinaryUrl ? post.photo : cloudinaryBaseUrl + post.photo}
-          alt=""
-        />
+      {post.photo && (
+        <Link to={`/post/${post._id}`} className="link">
+          {/* Ajout du lien autour de l'image */}
+          <img
+            className="postImg"
+            src={isCloudinaryUrl ? post.photo : cloudinaryBaseUrl + post.photo}
+            alt=""
+          />
+        </Link>
       )}
       <div className="postInfo">
         <div className="postCats">

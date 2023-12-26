@@ -1,19 +1,20 @@
-
 .banner {
   margin-bottom: 70px;
 }
+
 .banner-image {
   width: 100%;
   height: 910px;
   object-fit: cover;
   position: absolute;
 }
+
 .titre {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 9em; 
+  font-size: 30px;
   font-family: 'Roboto Condensed', sans-serif;
   color: white;
   text-align: center;
@@ -44,6 +45,9 @@
   transition: transform 0.3s ease;
   width: 200px;
 }
+.recipe-card.clicked {
+  opacity: 0.7;
+}
 
 .recipe-card:hover {
   transform: scale(1.05);
@@ -59,11 +63,6 @@
 .recipe-card h3 {
   margin: 10px;
   font-size: 18px;
-}
-
-.recipe-details {
-  margin-left: 20px;
-  flex: 2;
 }
 
 .recipe-details img {
@@ -92,23 +91,48 @@
   padding-left: 20px;
 }
 
-.recipe-card.selected + .recipe-details,
-.recipe-details:hover {
-  opacity: 1;
-}
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.recipe-card.clicked {
+  opacity: 0.7;
 }
 
 .recipe-details {
-  animation: fadeIn 0.8s ease;
+  margin-left: 20px;
+  flex: 2;
+  opacity: 0;
+  transition: opacity 0.8s ease;
 }
 
+.recipe-details.clicked {
+  opacity: 1;
+ 
+}
+
+@media (max-width: 600px) {
+  .titre {
+    position: absolute;
+    top: 62%;
+    left: 57%;
+    transform: translate(-50%, -50%);
+    font-size: 3em;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: white;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .recipes-container {
+    transform: translateY(20%);
+    margin-top: 20px;
+  }
+
+  .recipe-card {
+    max-width: 100%;
+  }
+  .banner-image{
+    width: 100%;
+  height: 390px;
+  object-fit: cover;
+  position: absolute;
+  }
+}

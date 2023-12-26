@@ -13,7 +13,7 @@
   transition: height 0.3s ease, transform 0.3s ease;
 }
 .topScrolled {
-  height: 50px; /* Ajustez la nouvelle hauteur */
+  height: 50px; 
   
   transform: translate(0, -270%);
 }
@@ -67,7 +67,7 @@
     cursor: pointer;
     position: relative;
     text-decoration: none;
-    color: #333; /* Changez la couleur du texte selon votre design */
+    color: #333; 
   }
   
   .topListItem::after {
@@ -79,7 +79,7 @@
     transform-origin: 50% 50%;
     width: 100%;
     height: 1px;
-    background-color: #666; /* Changez la couleur de la ligne selon votre design */
+    background-color: #666; 
     transition: transform 250ms;
   }
   
@@ -95,11 +95,55 @@
   } */
   
   @media only screen and (max-width: 600px) {
-    
-    .topListItem { 
-      font-size: 10px;
-      white-space: nowrap;
-      margin-right: 10px; 
-      
+    .top {
+      /* Styles spécifiques pour les mobiles */
+      height: 200px; /* Ajustez la nouvelle hauteur pour les mobiles */
     }
+    .topScrolled {
+      height: 50px; 
+      
+      transform: translate(0, -250%);
+    }
+    .topLogo {
+      /* Ajustez les styles pour le logo sur les mobiles */
+      width: 50vw;
+      transform: translate(60%, -30%);
+    }
+    .topCenter {
+     transform: translateX(-50%);
+     
+    }
+    .topList {
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .topListItem {
+      font-size: 13px; 
+      margin-right: 7px; 
+      white-space: nowrap;
+    }
+    .topListItem::after {
+      transform: translateX(-50%) scaleX(0);
+      transition: transform 250ms; /* Ajouter une transition pour l'effet d'animation */
+    }
+  
+    .topListItem:hover::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+  
+    .topListItem:hover {
+      color: #666; 
+    }
+    .topRight {
+      position: absolute;
+      right: 10px;
+      top: -70px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+   
+ 
   }

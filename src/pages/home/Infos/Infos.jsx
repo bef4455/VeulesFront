@@ -125,7 +125,11 @@ const Infos = () => {
         </div>
 
         {selectedRecipe !== null && (
-          <div className="recipe-details">
+          <div
+            className={`recipe-details ${
+              selectedRecipe !== null ? "clicked" : ""
+            }`}
+          >
             <img
               src={recipes[selectedRecipe].image}
               alt={recipes[selectedRecipe].title}
