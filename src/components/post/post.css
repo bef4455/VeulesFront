@@ -44,7 +44,7 @@
 .postTitle{
   font-family: 'Roboto Condensed', sans-serif;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
 }
 
@@ -58,10 +58,10 @@
 
 .postDesc{
   font-family: 'Roboto Condensed', sans-serif;
-    font-size: 14px;
+    font-size: 17px;
     color: #444;
     line-height: 24px;
-    
+    margin-top: -5px;
     margin-left: 10px;
     margin-right: 10px;
     overflow: hidden;

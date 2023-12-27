@@ -16,7 +16,7 @@ function Posts({ posts }) {
       elements.forEach((element, index) => {
         setTimeout(() => {
           element.classList.add("fade-in");
-        }, index * 1500);
+        }, index * 1000);
       });
     };
 

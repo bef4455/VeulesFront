@@ -108,6 +108,15 @@ const Infos = () => {
       <div className="banner">
         <h1 className="titre">Recettes</h1>
       </div>
+      <div className="white-box">
+        <h2>QU'EST-CE QU'ON Y MANGE ?</h2>
+        <p>
+          Découvrez et savourez nos recettes traditionnelles, transmises de
+          génération en génération. Chaque plat raconte une histoire et apporte
+          une touche spéciale à nos moments partagés en famille.
+        </p>
+      </div>
+
       <div className="recipes-container">
         <div className="recipe-cards">
           {recipes.map((recipe, index) => (

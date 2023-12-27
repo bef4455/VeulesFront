@@ -5,7 +5,7 @@
   justify-content:initial;
   min-height: 122vh;
   margin: auto;
-  margin-top: -243px;
+  margin-top: -280px;
 }
 
 .header-container {
@@ -24,7 +24,7 @@
   font-style: italic;
   font-size: 27px;
   margin-top: 41px;
-  margin-bottom: 40px;
+  margin-bottom: 70px;
 }
 .siteDescription {
   transform: translateY(-40%);
@@ -33,7 +33,7 @@
   font-size: 23px;
   margin-top: 80px;
   margin-bottom: 10px;
-  max-width: 1700px;
+  max-width: 1500px;
   text-align: center;
   line-height: 2;
 }

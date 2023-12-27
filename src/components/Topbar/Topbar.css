@@ -49,6 +49,8 @@
     border-radius: 50%;
     object-fit: cover;
     cursor: pointer;
+   
+    transform: translateX(620%);
   }
   
   .topList {
