@@ -9,21 +9,6 @@ function Posts({ posts }) {
   const bottomRef = useRef(null);
 
   useEffect(() => {
-    const addFadeInClass = () => {
-      const elements = document.querySelectorAll(
-        ".fade-in-delay1, .fade-in-delay2, .fade-in-delay3"
-      );
-      elements.forEach((element, index) => {
-        setTimeout(() => {
-          element.classList.add("fade-in");
-        }, index * 1000);
-      });
-    };
-
-    addFadeInClass();
-  }, []);
-
-  useEffect(() => {
     const handleScroll = () => {
       const scrollButton = document.querySelector(".scrollUpIcon");
       if (scrollButton) {

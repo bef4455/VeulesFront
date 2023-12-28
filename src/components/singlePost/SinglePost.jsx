@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./singlePost.css";
 import myApi from "../../service/service";
@@ -11,6 +11,7 @@ function SinglePost({ fetchPosts }) {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
+  const [showFullText, setShowFullText] = useState(false);
   const params = useParams();
   let { user } = useContext(Context);
   const Navigate = useNavigate();
@@ -57,6 +58,14 @@ function SinglePost({ fetchPosts }) {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const toggleShowFullText = () => {
+    setShowFullText((prevShowFullText) => !prevShowFullText);
+  };
+
+  const toggleShowLessText = () => {
+    setShowFullText(false);
   };
 
   return (
@@ -120,10 +129,27 @@ function SinglePost({ fetchPosts }) {
             onChange={(e) => setDesc(e.target.value)}
           />
         ) : (
-          <div
-            className="singlePostDesc"
-            dangerouslySetInnerHTML={{ __html: desc }}
-          />
+          <div className="singlePostDesc">
+            {showFullText ? (
+              <div dangerouslySetInnerHTML={{ __html: desc }} />
+            ) : (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: `${desc.slice(0, 3600)}...`,
+                }}
+              />
+            )}
+            {!showFullText && desc.length > 200 && (
+              <button className="showMoreButton" onClick={toggleShowFullText}>
+                Afficher plus
+              </button>
+            )}
+            {showFullText && (
+              <button className="showLessButton" onClick={toggleShowLessText}>
+                Afficher moins
+              </button>
+            )}
+          </div>
         )}
         {updateMode && (
           <button className="singlePostButton" onClick={handleUpdate}>
