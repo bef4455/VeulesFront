@@ -6,17 +6,15 @@ import "./peche.css";
 function Peche() {
   const [showMaree, setShowMaree] = useState(true);
   const [initialRender, setInitialRender] = useState(true);
+  const [mareeOpacity, setMareeOpacity] = useState(1);
 
   useEffect(() => {
-    // Empêcher l'affichage initial des deux sections
     setInitialRender(false);
   }, []);
 
   const toggleMareeSection = () => {
-    if (!showMaree) {
-      // Si la section "Histoire" est déjà masquée, alors seulement on affiche la section "Horaire des marées"
-      setShowMaree(true);
-    }
+    setShowMaree(!showMaree);
+    setMareeOpacity(showMaree ? 0 : 1);
   };
 
   const photos = [
@@ -65,8 +63,8 @@ function Peche() {
       {showMaree && (
         <motion.section
           className="maree-section"
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: initialRender ? 1 : mareeOpacity }}
+          animate={{ opacity: showMaree ? 1 : 0 }}
           exit={{ opacity: 0 }}
         >
           <div className="maree">

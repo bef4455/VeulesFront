@@ -27,19 +27,19 @@ function Posts({ posts }) {
   }, [showAllPosts]);
 
   const siteSuperTitle = (
-    <div className="siteSuperTitle fade-in-delay1">
+    <div className="siteSuperTitle">
       <span>BIENVENUE</span> SUR NOTRE BLOG FAMILIALE
     </div>
   );
 
   const siteTitle = (
-    <h2 className="siteTitle fade-in-delay2">
+    <h2 className="siteTitle">
       Une famille, un blog, des souvenirs pour la vie
     </h2>
   );
 
   const siteDescription = (
-    <p className="siteDescription fade-in-delay3">
+    <p className="siteDescription">
       Sam-Suphi est une maison familiale en Haute-Normandie, à Veules-les-Roses.
       La paisible Sam accueille une joyeuse ribambelle de passagers pour
       célébrer le bonheur. Écrivez, partagez des photos, découvrez les

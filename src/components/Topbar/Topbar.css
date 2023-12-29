@@ -146,6 +146,13 @@
       display: flex;
       align-items: center;
     }
-   
+    .topImg {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      cursor: pointer;
+      transform: translateX(10%);
+    }
  
   }

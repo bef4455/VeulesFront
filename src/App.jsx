@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Topbar from "./components/Topbar/Topbar";
 import Register from "./pages/home/Register/Register";
 import Home from "./pages/home/Home";
@@ -38,27 +38,39 @@ function App() {
   return (
     <div className="App">
       {!isLoginPage && !isRegisterPage && <Topbar />}
-      <AnimatePresence exitBeforeEnter={false}>
-        <Routes location={location}>
-          <Route path="/" element={user ? <Home posts={posts} /> : <Login />} />
-          <Route path="/register" element={user ? <Home /> : <Register />} />
-          <Route path="/login" element={user ? <Home /> : <Login />} />
-          <Route
-            path="/write"
-            element={user ? <Write fetchPosts={fetchPosts} /> : <Register />}
-          />
-          <Route
-            path="/settings"
-            element={user ? <Settings fetchPosts={fetchPosts} /> : <Register />}
-          />
-          <Route path="/peche" element={user ? <Peche /> : <Register />} />
-          <Route path="/infos" element={user ? <Infos /> : <Register />} />
-          <Route
-            path="/post/:postId"
-            element={<Single fetchPosts={fetchPosts} />}
-          />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+      <AnimatePresence exitBeforeEnter={false} mode="out-in">
+        <motion.div
+          key={location.pathname}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <Routes location={location}>
+            <Route
+              path="/"
+              element={user ? <Home posts={posts} /> : <Login />}
+            />
+            <Route path="/register" element={user ? <Home /> : <Register />} />
+            <Route path="/login" element={user ? <Home /> : <Login />} />
+            <Route
+              path="/write"
+              element={user ? <Write fetchPosts={fetchPosts} /> : <Register />}
+            />
+            <Route
+              path="/settings"
+              element={
+                user ? <Settings fetchPosts={fetchPosts} /> : <Register />
+              }
+            />
+            <Route path="/peche" element={user ? <Peche /> : <Register />} />
+            <Route path="/infos" element={user ? <Infos /> : <Register />} />
+            <Route
+              path="/post/:postId"
+              element={<Single fetchPosts={fetchPosts} />}
+            />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </motion.div>
       </AnimatePresence>
     </div>
   );
