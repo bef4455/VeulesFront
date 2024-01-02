@@ -165,27 +165,29 @@
     background-color: white;
     border-radius: 2px;
     max-width: 60% !important;
+    height: 50px;
   }
   .siteSuperTitle {
     font-size: 21px; 
     display: flex;
     flex-direction: column;
     align-items: center;
+    transform: translatey(-20%);
   }
   .siteSuperTitle span {
     font-size: 30px; /* Taille de police pour "BIENVENUE" */
   }
   .siteTitle {
     font-size: 13px; 
-    margin-top: 15px; 
+    margin-top: 5px; 
     margin-bottom: 30px; 
+    transform: translatey(-20%);
   }
 
   .siteDescription {
     transform: translateY(-20%);
     margin-top: 35px;
     font-size: 18px; 
-    min-height: 15vh;
     justify-content: center;
     align-items: center;  
     line-height: 2;

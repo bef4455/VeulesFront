@@ -116,7 +116,7 @@
      
     }
     .topList {
-      margin-bottom: 15px;
+      margin-bottom: 0px;
       display: flex;
       justify-content: space-around;
       align-items: center;

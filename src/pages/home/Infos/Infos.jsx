@@ -4,6 +4,7 @@ import "./infos.css";
 
 const Infos = () => {
   const [selectedRecipe, setSelectedRecipe] = useState(0);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const recipes = [
     {
@@ -96,6 +97,11 @@ const Infos = () => {
   ];
   const handleRecipeClick = (index) => {
     setSelectedRecipe(index);
+    setIsPopupOpen(true); // Ouvrir le popup lorsqu'une recette est cliquée
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false); // Fermer le popup
   };
 
   return (
