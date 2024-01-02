@@ -156,7 +156,7 @@
   opacity: 1;
   transition: opacity 0.2s ease-in-out; /* Ajoutez une transition pour un fondu en douceur */
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 780px) {
   .home{
     transform: translateY(-10%);
   }
@@ -181,7 +181,7 @@
     font-size: 13px; 
     margin-top: 5px; 
     margin-bottom: 30px; 
-    transform: translatey(-20%);
+    transform: translatey(-55%);
   }
 
   .siteDescription {

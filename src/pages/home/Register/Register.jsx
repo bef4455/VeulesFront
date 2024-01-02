@@ -5,12 +5,14 @@ import DJI_00534 from "../../../assets/DJI_00534.mp4";
 import { useState } from "react";
 import myApi from "../../../service/service";
 import { useNavigate } from "react-router-dom";
+import Spinner from "../../../components/spinner/Spinner";
 
 function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showSpinner, setShowSpinner] = useState(false);
   const [error, setError] = useState(false);
   const Navigate = useNavigate();
 
@@ -18,6 +20,7 @@ function Register() {
     e.preventDefault();
     setError(false);
     setIsLoading(true);
+    setShowSpinner(true);
 
     try {
       await myApi.post("/auth/register", {
@@ -31,6 +34,7 @@ function Register() {
     }
 
     setIsLoading(false);
+    setShowSpinner(false);
   };
 
   return (
@@ -64,9 +68,15 @@ function Register() {
             placeholder="Entre ton Mot de Passe..."
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="registerButton" type="submit" disabled={isLoading}>
-            {isLoading ? "Chargement..." : "S'enregister"}
+          <button
+            className="registerButton"
+            type="submit"
+            disabled={isLoading}
+            style={{ display: showSpinner ? "none" : "block" }}
+          >
+            S'enregistrer
           </button>
+          {showSpinner && <Spinner />}
         </form>
       </motion.div>
       <button className="registerLoginButton">
