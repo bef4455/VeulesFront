@@ -1,5 +1,5 @@
 import "./login.css";
-
+import Spinner from "../../../components/spinner/Spinner";
 import { Link } from "react-router-dom";
 import DJI_00534 from "../../../assets/DJI_00534.mp4";
 import { useContext, useRef, useState } from "react";
@@ -15,12 +15,14 @@ function Login() {
   const { dispatch, isFetching } = useContext(Context);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [showSpinner, setShowSpinner] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     dispatch({ type: "LOGIN_START" });
     setIsLoading(true);
+    setShowSpinner(true);
 
     try {
       const res = await myApi.post("/auth/login", {
@@ -49,6 +51,7 @@ function Login() {
       }
     } finally {
       setIsLoading(false);
+      setShowSpinner(false);
     }
   };
 
@@ -97,9 +100,11 @@ function Login() {
           type="submit"
           disabled={isFetching || isLoading}
           onClick={handleSubmit}
+          style={{ display: isLoading ? "none" : "block" }}
         >
-          {isLoading ? "Chargement..." : "Se Connecter"}
+          Se Connecter
         </button>
+        {showSpinner && <Spinner />}
       </motion.div>
       <button className="loginRegisterButton">
         <Link className="link" to="/register">
