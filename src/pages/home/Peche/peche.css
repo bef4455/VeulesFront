@@ -120,7 +120,7 @@
 }
 
 /* Styles pour les petits écrans (par exemple, smartphones) */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 780px) {
   body {
     overflow-x: hidden;
   }

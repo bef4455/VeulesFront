@@ -92,7 +92,7 @@ video::-moz-media-controls-play-button {
 }
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 780px) {
     .loginTitle {
       font-size: 30px;
     }

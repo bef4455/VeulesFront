@@ -149,7 +149,7 @@
  
 }
 
-@media (max-width: 600px) {
+@media (max-width: 780px) {
   .titre {
     position: absolute;
     top: 62%;

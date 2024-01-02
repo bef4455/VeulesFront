@@ -63,7 +63,7 @@
     cursor: pointer;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 780px) {
     .sidebar {
       flex: 1; /* Ajustez la flexibilité pour occuper moins d'espace */
       margin: 10px; /* Réduisez la marge pour économiser de l'espace */
