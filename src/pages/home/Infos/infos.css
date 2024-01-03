@@ -211,6 +211,7 @@
     max-width: 90%; 
     transform: translateY(1%);
     margin-top: 20px;
+    margin-bottom: 60px;
   }
 
   .recipe-cards {
@@ -218,7 +219,7 @@
     justify-content: center;
     height: 140px;
     width: 400px;
-    margin-left: 15px;
+    margin-left: 10px;
   
   }
 
@@ -235,9 +236,9 @@
   }
   .recipe-details.clicked {
     transform: translateY(5%);
- 
     flex: 1;
     max-width: 100%;
+    
   }
   .recipe-details img{
     width: 90%;
