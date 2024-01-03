@@ -218,7 +218,7 @@
     justify-content: center;
     height: 140px;
     width: 400px;
-    margin-left: 25px;
+    margin-left: 15px;
   
   }
 
@@ -245,5 +245,7 @@
   .instructions{
 max-width: 90%;
   }
-  
+  .ingredients{
+    max-width: 80%;
+  }
 }
