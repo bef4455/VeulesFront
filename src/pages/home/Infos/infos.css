@@ -215,16 +215,21 @@
   }
 
   .recipe-cards {
+    display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
     height: 140px;
     width: 400px;
     margin-left: 10px;
-  
+    overflow-y: auto; 
+    max-height: 600px;
   }
+  
 
   .recipe-card {
     width: 70%;
+   
   }
   .recipe-card h3{
     font-size: 13px;
@@ -235,7 +240,7 @@
     
   }
   .recipe-details.clicked {
-    transform: translateY(5%);
+    transform: translateY(10%);
     flex: 1;
     max-width: 100%;
     
