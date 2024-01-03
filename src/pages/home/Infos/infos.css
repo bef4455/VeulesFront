@@ -234,12 +234,16 @@
     
   }
   .recipe-details.clicked {
-    transform: translateY(30%);
-    
+    transform: translateY(5%);
+ 
     flex: 1;
     max-width: 100%;
   }
-
-
+  .recipe-details img{
+    width: 90%;
+  }
+  .instructions{
+max-width: 90%;
+  }
   
 }
