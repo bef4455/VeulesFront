@@ -8,11 +8,11 @@ function Header() {
       <div className="headerTitles">
         <img />
       </div>
+      <div className="headerImg"></div>
       <video autoPlay muted loop playsInline className="video-background">
         <source src={Samsup} type="video/mp4" />
         Votre navigateur ne prend pas en charge la balise vidéo.
       </video>
-      <div className="headerImg"></div>
     </div>
   );
 }

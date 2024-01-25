@@ -159,6 +159,9 @@
   .home{
     transform: translateY(-10%);
   }
+  .text{
+    transform: translateY(10%);
+  }
   .header-container {
     text-align: center;
     background-color: white;
