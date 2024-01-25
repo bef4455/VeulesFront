@@ -10,12 +10,16 @@
 .headerImg {
   width: 100%;
   height: 900px;
-  background-image: url("https://raw.githubusercontent.com/bef4455/VeulesFront/main/public/IMG_3429.JPEG");
   background-size: cover;
   background-position: center 27%;
   
 }
-
+.video-background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
   @media only screen and (max-width: 780px) {
     .header {
       margin-top: 30px;
@@ -37,9 +41,18 @@
       width: 100%;
       background-size: cover;
       background-position: center 25%;
-      height: 394px; 
+      height: 490px; 
       margin-top: -28px; 
       margin-bottom: 92px;
+    }
+    .video-background {
+      position: absolute;
+      top: 0;
+  left: 0;
+      width: 100%;
+      height: 70%;
+      object-fit: cover;
+      z-index: -1;
     }
     .sidebarItem {
       display: flex;
