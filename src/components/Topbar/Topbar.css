@@ -101,7 +101,7 @@
   @media only screen and (max-width: 780px) {
     .top {
       /* Styles spécifiques pour les mobiles */
-      height: 200px; /* Ajustez la nouvelle hauteur pour les mobiles */
+      height: 200px; 
     }
     .topScrolled {
       height: 50px; 
@@ -118,15 +118,17 @@
      
     }
     .topList {
+    
       margin-bottom: 0px;
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       align-items: center;
       transform: translateY(-150%);
+        
     }
     .topListItem {
       font-size: 13px; 
-      margin-right: 7px; 
+      margin-right: 5px; 
       white-space: nowrap;
     }
     .topListItem::after {
