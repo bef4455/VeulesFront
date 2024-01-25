@@ -165,7 +165,7 @@
     background-color: white;
     border-radius: 2px;
     max-width: 60% !important;
-    height: 50px;
+    height: 60px;
   }
   .siteSuperTitle {
     font-size: 21px; 
@@ -179,18 +179,19 @@
   }
   .siteTitle {
     font-size: 13px; 
-    margin-top: 5px; 
+    margin-top: 15px; 
     margin-bottom: 30px; 
     transform: translatey(-55%);
   }
 
   .siteDescription {
     transform: translateY(-20%);
-    margin-top: 35px;
+    margin-top: 45px;
     font-size: 18px; 
     justify-content: center;
     align-items: center;  
     line-height: 2;
+    max-width: 350px;
   }
   .fade-in {
     opacity: 1 !important;
