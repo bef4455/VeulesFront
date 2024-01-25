@@ -55,6 +55,13 @@
     color: #999;
     margin-top: 15px;
 }
+.postAuthor{
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: #999;
+  margin-top: 15px;
+}
 
 .postDesc{
   font-family: 'Roboto Condensed', sans-serif;

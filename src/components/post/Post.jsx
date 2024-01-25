@@ -20,7 +20,6 @@ function Post({ post }) {
     <div className="post" key={post.id}>
       {post.photo && (
         <Link to={`/post/${post._id}`} className="link">
-          {/* Ajout du lien autour de l'image */}
           <img
             className="postImg"
             src={isCloudinaryUrl ? post.photo : cloudinaryBaseUrl + post.photo}
@@ -42,8 +41,10 @@ function Post({ post }) {
         <hr />
       </div>
       <p className="postDesc" dangerouslySetInnerHTML={{ __html: post.desc }} />
+      <span className="postAuthor">Crée par {post.username}</span>
       <span className="postDate">
-        {format(new Date(post.createdAt), "PPP", { locale: frLocale })}
+        {" "}
+        le {format(new Date(post.createdAt), "PPP", { locale: frLocale })}
       </span>
     </div>
   );

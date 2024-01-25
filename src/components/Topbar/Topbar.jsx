@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import logo from "/noirlogo.png";
 import "./Topbar.css";
+import Avatar from "react-avatar";
 
 function Topbar() {
   const { user, dispatch } = useContext(Context);
@@ -47,7 +48,7 @@ function Topbar() {
           </li>
           <li className="topListItem">
             <Link className="link" to="/infos">
-              RECETTES
+              FOOD
             </Link>
           </li>
           <li className="topListItem">
@@ -69,7 +70,12 @@ function Topbar() {
         {user ? (
           <Link to="/settings">
             {/* Utilisez la balise <img> pour afficher le logo */}
-            <img className="topImg" src="\profil.png" alt="Profile Logo" />
+            <Avatar
+              name={user.username}
+              size="40"
+              round={true}
+              className="avatar"
+            />
           </Link>
         ) : (
           <ul className="topList">

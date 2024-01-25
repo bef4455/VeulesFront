@@ -1,11 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import "./infos.css";
+import RestaurantSection from "../../../components/restaurant/RestaurantSection";
 
 const Infos = () => {
   const [selectedRecipe, setSelectedRecipe] = useState(0);
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [showRecipes, setShowRecipes] = useState(true);
 
+  const toggleView = () => {
+    setShowRecipes(!showRecipes);
+  };
   const recipes = [
     {
       title: "Cuisson des bulots",
@@ -97,11 +101,6 @@ const Infos = () => {
   ];
   const handleRecipeClick = (index) => {
     setSelectedRecipe(index);
-    setIsPopupOpen(true); // Ouvrir le popup lorsqu'une recette est cliquée
-  };
-
-  const closePopup = () => {
-    setIsPopupOpen(false); // Fermer le popup
   };
 
   return (
@@ -112,65 +111,86 @@ const Infos = () => {
         className="banner-image"
       />
       <div className="banner">
-        <h1 className="titre">Recettes</h1>
+        <h1 className="titre">FOOD</h1>
       </div>
-      <div className="white-box">
-        <h2>QU'EST-CE QU'ON Y MANGE ?</h2>
-        <p>
-          Découvrez et savourez nos recettes traditionnelles, transmises de
-          génération en génération. Chaque plat raconte une histoire et apporte
-          une touche spéciale à nos moments partagés en famille.
-        </p>
+      <div className="button-container">
+        <button onClick={toggleView} className="custom-button">
+          {showRecipes ? "Les restaurants" : "Les recettes"}
+        </button>
       </div>
-
-      <div className="recipes-container">
-        <div className="recipe-cards">
-          {recipes.map((recipe, index) => (
-            <div
-              key={index}
-              className={`recipe-card ${
-                selectedRecipe === index ? "selected" : ""
-              }`}
-              onClick={() => handleRecipeClick(index)}
-            >
-              <img src={recipe.image} alt={recipe.title} />
-              <h3>{recipe.title}</h3>
-            </div>
-          ))}
-        </div>
-
-        {selectedRecipe !== null && (
-          <div
-            className={`recipe-details ${
-              selectedRecipe !== null ? "clicked" : ""
-            }`}
-          >
-            <img
-              src={recipes[selectedRecipe].image}
-              alt={recipes[selectedRecipe].title}
-            />
-            <h2>{recipes[selectedRecipe].title}</h2>
-
-            <div className="ingredients">
-              <h4>Ingrédients:</h4>
-              <ul>
-                {recipes[selectedRecipe].ingredients.map((ingredient, i) => (
-                  <li key={i}>{ingredient}</li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="instructions">
-              <h4>Instructions:</h4>
-              <ol>
-                {recipes[selectedRecipe].instructions.map((step, i) => (
-                  <li key={i}>{step}</li>
-                ))}
-              </ol>
-            </div>
+      {showRecipes ? (
+        <div>
+          <div className="white-box">
+            <h2>QU'EST-CE QU'ON Y MANGE ?</h2>
+            <p>
+              Découvrez et savourez nos recettes traditionnelles, transmises de
+              génération en génération. Chaque plat raconte une histoire et
+              apporte une touche spéciale à nos moments partagés en famille.
+            </p>
           </div>
-        )}
-      </div>
+
+          <div className="recipes-container">
+            <div className="recipe-cards">
+              {recipes.map((recipe, index) => (
+                <div
+                  key={index}
+                  className={`recipe-card ${
+                    selectedRecipe === index ? "selected" : ""
+                  }`}
+                  onClick={() => handleRecipeClick(index)}
+                >
+                  <img src={recipe.image} alt={recipe.title} />
+                  <h3>{recipe.title}</h3>
+                </div>
+              ))}
+            </div>
+
+            {selectedRecipe !== null && (
+              <div
+                className={`recipe-details ${
+                  selectedRecipe !== null ? "clicked" : ""
+                }`}
+              >
+                <img
+                  src={recipes[selectedRecipe].image}
+                  alt={recipes[selectedRecipe].title}
+                />
+                <h2>{recipes[selectedRecipe].title}</h2>
+
+                <div className="ingredients">
+                  <h4>Ingrédients:</h4>
+                  <ul>
+                    {recipes[selectedRecipe].ingredients.map(
+                      (ingredient, i) => (
+                        <li key={i}>{ingredient}</li>
+                      )
+                    )}
+                  </ul>
+                </div>
+
+                <div className="instructions">
+                  <h4>Instructions:</h4>
+                  <ol>
+                    {recipes[selectedRecipe].instructions.map((step, i) => (
+                      <li key={i}>{step}</li>
+                    ))}
+                  </ol>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      ) : (
+        <div className="white-box">
+          <h2>OU QU'ON MANGE ?</h2>
+          <p>
+            Pas envie de faire à manger ? Proche d'ici vous trouverez quelques
+            bonnes adresses pour déguster des plats locaux.
+          </p>
+        </div>
+      )}
+
+      {!showRecipes && <RestaurantSection />}
     </div>
   );
 };

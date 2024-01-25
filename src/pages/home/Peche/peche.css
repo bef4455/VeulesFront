@@ -33,31 +33,41 @@
   z-index: 1;
 }
 
-.menu-buttons{
+.toggle-button{
   margin-bottom: 35px;
   text-align: center;
   margin-top: 30px;
   
 }
-.menu-buttons button {
-  margin-right: 10px;
-  margin-left: 10px;
-  transition: all .5s ease;
-  color: #393939; 
-  font-family: 'Roboto Condensed', sans-serif;
-  text-transform: uppercase;
-  text-align: center;
-  line-height: 1;
-  font-size: 17px;
-  padding: 10px;
-  outline: none;
-  border-radius: 7px;
-  cursor: pointer;
-}
-.menu-buttons button:hover {
-  color: #393939; 
-  background-color: #cccccc;
-}
+.toggle-button button {
+    background-color: #fff;
+    border: 1px solid #d5d9d9;
+    border-radius: 8px;
+    box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+    box-sizing: border-box;
+    color: #0f1111;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 13px;
+    line-height: 29px;
+    padding: 0 10px 0 11px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    width: 100px;
+  }
+  .toggle-button button:hover {
+    background-color: #45a049;
+  }
+ 
+  
+
+
 
 .maree-section {
   height: 50rem; 
@@ -100,6 +110,7 @@
   font-style: italic;
   color: #393939; 
   font-size: 25px;
+
   
 }
 .photo-section {
@@ -118,6 +129,7 @@
   margin: 0 auto;
   margin-bottom: 2%;
 }
+
 
 /* Styles pour les petits écrans (par exemple, smartphones) */
 @media screen and (max-width: 780px) {
@@ -145,10 +157,10 @@
     transform: translateY(1%);
   object-fit: cover;
   }
-  .menu-buttons{
+  .toggle-button{
     margin-bottom: 20px;
   }
-  .menu-buttons button {
+  .toggle-buttons button {
     font-size: 12px; 
     padding: 8px 10px;  
    
@@ -188,14 +200,14 @@
   }
 
   .description {
-    font-size: 18px; /* Ajustez la taille de la police pour une meilleure lisibilité */
-    margin-top: 2%; /* Ajustez la marge selon vos besoins */
-    margin-bottom: 2%; /* Ajustez la marge selon vos besoins */
+    font-size: 18px; 
+    margin-top: 15%; 
+    margin-bottom: 2%; 
   }
 
   .slick-slider {
     width: 70%;
-    margin-top: 2rem;
+    margin-top: 5rem;
     margin-bottom: 20rem;
   }
 

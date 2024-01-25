@@ -4,17 +4,17 @@ import Slider from "react-slick";
 import "./peche.css";
 
 function Peche() {
-  const [showMaree, setShowMaree] = useState(true);
+  const [displayMaree, setDisplayMaree] = useState(true);
   const [initialRender, setInitialRender] = useState(true);
-  const [mareeOpacity, setMareeOpacity] = useState(1);
+  const [sectionOpacity, setSectionOpacity] = useState(1);
 
   useEffect(() => {
     setInitialRender(false);
   }, []);
 
-  const toggleMareeSection = () => {
-    setShowMaree(!showMaree);
-    setMareeOpacity(showMaree ? 0 : 1);
+  const toggleSection = () => {
+    setDisplayMaree(!displayMaree);
+    setSectionOpacity(displayMaree ? 0 : 1);
   };
 
   const photos = [
@@ -46,25 +46,34 @@ function Peche() {
     >
       {/* Bannière */}
       <header className="banner">
-        <h1 className="titre">Pêche</h1>
+        <h1 className="titre">PÊCHE</h1>
         <motion.img
           src="https://raw.githubusercontent.com/bef4455/VeulesFront/main/public/IMG_7079.jpeg"
           alt="Bannière de pêche"
         />
       </header>
+      <div className="white-box">
+        <h2>QU'EST-CE QU'ON PÊCHE ?</h2>
+        <p>
+          Plongez dans l'expérience de la pêche à la crevette en famille,
+          explorez les marées et partagez vos photos de moments authentiques au
+          fil de l'eau.
+        </p>
+      </div>
 
-      {/* Boutons du menu */}
-      <div className="menu-buttons">
-        <button onClick={toggleMareeSection}>Horaire des marées</button>
-        <button onClick={() => setShowMaree(false)}>Histoire</button>
+      {/* Bouton unique pour alterner entre les sections */}
+      <div className="toggle-button">
+        <button onClick={toggleSection}>
+          {displayMaree ? "Histoire de la Pêche" : "Horaire des Marées"}
+        </button>
       </div>
 
       {/* Informations sur les marées */}
-      {showMaree && (
+      {displayMaree && (
         <motion.section
           className="maree-section"
-          initial={{ opacity: initialRender ? 1 : mareeOpacity }}
-          animate={{ opacity: showMaree ? 1 : 0 }}
+          initial={{ opacity: initialRender ? 1 : sectionOpacity }}
+          animate={{ opacity: displayMaree ? 1 : 0 }}
           exit={{ opacity: 0 }}
         >
           <div className="maree">
@@ -78,11 +87,8 @@ function Peche() {
         </motion.section>
       )}
 
-      {/* Séparateur */}
-      <div className="separator"></div>
-
       {/* Description de la pêche */}
-      {(initialRender || !showMaree) && (
+      {(initialRender || !displayMaree) && (
         <motion.section
           className="description-section"
           initial={{ opacity: 0 }}
@@ -104,7 +110,7 @@ function Peche() {
       )}
 
       {/* Slider d'images */}
-      {(initialRender || !showMaree) && (
+      {(initialRender || !displayMaree) && (
         <motion.section
           className="photo-section"
           initial={{ opacity: 0 }}

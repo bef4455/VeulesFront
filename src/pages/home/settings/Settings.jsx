@@ -1,10 +1,10 @@
-import { useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { motion } from "framer-motion";
 import "./settings.css";
-import Sidebar from "../../../components/sidebar/Sidebar";
 import { Context } from "../../../context/Context";
 import myApi from "../../../service/service";
 import { useNavigate } from "react-router";
+import Avatar from "react-avatar";
 
 function Settings({ fetchPosts }) {
   const Navigate = useNavigate();
@@ -62,7 +62,11 @@ function Settings({ fetchPosts }) {
           <span className="settingsUpdateTitle">Modifie ton compte</span>
         </div>
         <form className="settingsForm" onSubmit={handleSubmit}>
-          {/* Removed profilePic related code */}
+          {/* Affichez l'avatar actuel de l'utilisateur */}
+          <div className="settingsPP">
+            <Avatar name={user.username} size="70" round={true} />
+          </div>
+
           <label>Pseudo</label>
           <input
             type="text"
@@ -83,6 +87,7 @@ function Settings({ fetchPosts }) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+
           <button className="settingsSubmit" type="submit">
             Modifier
           </button>

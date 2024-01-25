@@ -4,7 +4,6 @@ import { Outlet } from "react-router";
 import { motion } from "framer-motion";
 import Header from "../../components/header/Header";
 import Posts from "../../components/posts/Posts";
-import Sidebar from "../../components/sidebar/Sidebar";
 import "./home.css";
 
 const Home = ({ posts }) => {
