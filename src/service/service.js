@@ -44,7 +44,12 @@ myApi.updateUser = (userId, updatedUser) => {
 myApi.deleteUser = (userId) => {
     return myApi.delete(`/users/${userId}`)
 }
-
+myApi.resetPassword = (resetToken, newPassword) => {
+    return myApi.post("/auth/reinitialiser-mot-de-passe", {
+        resetToken,
+        newPassword,
+    });
+}
 
 
 export default myApi

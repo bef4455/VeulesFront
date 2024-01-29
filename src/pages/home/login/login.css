@@ -83,7 +83,12 @@ video::-moz-media-controls-play-button {
    color: white;
    border-radius: 10px;
 }
-
+.forgotPasswordLink{
+    font-family: 'Roboto Condensed', sans-serif;
+   transform: translateY(-110%);
+    color: white;
+    text-decoration: none;
+}
 
 .errorMessage{
     color: red;
@@ -110,4 +115,5 @@ video::-moz-media-controls-play-button {
       right: 10px;
       padding: 8px;
     }
+
   }

@@ -7,6 +7,7 @@ import { Context } from "../../../context/Context";
 import myApi from "../../../service/service";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import ResetPassword from "./../../../components/ResetPassword/ResetPassword";
 
 function Login() {
   const userRef = useRef();
@@ -16,6 +17,34 @@ function Login() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showSpinner, setShowSpinner] = useState(false);
+  const [showResetPasswordForm, setShowResetPasswordForm] = useState(false);
+  const [showForgotPasswordModal, setShowForgotPasswordModal] = useState(false);
+  const [email, setEmail] = useState("");
+
+  const openForgotPasswordModal = () => {
+    setShowForgotPasswordModal(true);
+  };
+
+  const closeForgotPasswordModal = () => {
+    setShowForgotPasswordModal(false);
+  };
+
+  const handleForgotPassword = async () => {
+    try {
+      const response = await myApi.post("/auth/mot-de-passe-oublie", {
+        email: email,
+      });
+
+      console.log(response.data.message);
+
+      closeForgotPasswordModal();
+    } catch (error) {
+      console.error(
+        "Erreur lors de la demande de réinitialisation du mot de passe :",
+        error
+      );
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -67,7 +96,6 @@ function Login() {
         muted
         playsInline
       />
-      {/* Ajoutez la barre de chargement ici */}
       <div className={`loading-bar ${isLoading ? "" : "fade-out"}`}>
         <div
           className="progress"
@@ -105,7 +133,35 @@ function Login() {
           Se Connecter
         </button>
         {showSpinner && <Spinner />}
+
+        {/* Ajoutez ce code pour la fenêtre modale ici */}
+        {showForgotPasswordModal && (
+          <div className="forgotPasswordModal">
+            <label>Email</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Entrez votre email"
+            />
+            <button onClick={handleForgotPassword}>Envoyer</button>
+            <button onClick={closeForgotPasswordModal}>Fermer</button>
+          </div>
+        )}
       </motion.div>
+
+      {/* Afficher le lien de réinitialisation du mot de passe si le formulaire n'est pas affiché */}
+      {!showResetPasswordForm && (
+        <Link className="forgotPasswordLink" onClick={openForgotPasswordModal}>
+          Mot de passe oublié ?
+        </Link>
+      )}
+
+      {/* Afficher le formulaire de réinitialisation du mot de passe si demandé */}
+      {showResetPasswordForm && (
+        <ResetPassword onCancelReset={() => setShowResetPasswordForm(false)} />
+      )}
+
       <button className="loginRegisterButton">
         <Link className="link" to="/register">
           Enregistrer
