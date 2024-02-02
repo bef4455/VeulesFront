@@ -13,6 +13,7 @@ import Write from "./pages/home/write/Write";
 import NotFound from "./pages/home/NotFound/NotFound";
 import Context from "./context/Context";
 import myApi from "./service/service";
+import ResetPassword from "./components/ResetPassword/ResetPassword";
 
 function App() {
   const { user } = useContext(Context);
@@ -52,6 +53,7 @@ function App() {
             />
             <Route path="/register" element={user ? <Home /> : <Register />} />
             <Route path="/login" element={user ? <Home /> : <Login />} />
+            <Route path="/reset-password/:token" element={<ResetPassword />} />
             <Route
               path="/write"
               element={user ? <Write fetchPosts={fetchPosts} /> : <Register />}

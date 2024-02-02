@@ -23,12 +23,12 @@ function Login() {
 
   const openForgotPasswordModal = () => {
     setShowForgotPasswordModal(true);
+    setShowResetPasswordForm(false);
   };
-
   const closeForgotPasswordModal = () => {
     setShowForgotPasswordModal(false);
   };
-
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const handleForgotPassword = async () => {
     try {
       const response = await myApi.post("/auth/mot-de-passe-oublie", {
@@ -37,6 +37,10 @@ function Login() {
 
       console.log(response.data.message);
 
+      // Afficher la pop-up de succès
+      setShowSuccessPopup(true);
+
+      // Fermer la fenêtre modale
       closeForgotPasswordModal();
     } catch (error) {
       console.error(
@@ -134,7 +138,6 @@ function Login() {
         </button>
         {showSpinner && <Spinner />}
 
-        {/* Ajoutez ce code pour la fenêtre modale ici */}
         {showForgotPasswordModal && (
           <div className="forgotPasswordModal">
             <label>Email</label>
@@ -150,18 +153,30 @@ function Login() {
         )}
       </motion.div>
 
-      {/* Afficher le lien de réinitialisation du mot de passe si le formulaire n'est pas affiché */}
-      {!showResetPasswordForm && (
-        <Link className="forgotPasswordLink" onClick={openForgotPasswordModal}>
+      {!showResetPasswordForm && !showForgotPasswordModal && (
+        <Link
+          className="forgotPasswordLink"
+          onClick={() => {
+            openForgotPasswordModal();
+            setShowResetPasswordForm(false);
+          }}
+        >
           Mot de passe oublié ?
         </Link>
       )}
 
-      {/* Afficher le formulaire de réinitialisation du mot de passe si demandé */}
       {showResetPasswordForm && (
         <ResetPassword onCancelReset={() => setShowResetPasswordForm(false)} />
       )}
-
+      {showSuccessPopup && (
+        <div className="successPopup">
+          <p>
+            L'e-mail est parti, tu le recevras d'ici quelques secondes ! Vérifie
+            la boîte des indésirables au cas où.
+          </p>
+          <button onClick={() => setShowSuccessPopup(false)}>OK</button>
+        </div>
+      )}
       <button className="loginRegisterButton">
         <Link className="link" to="/register">
           Enregistrer

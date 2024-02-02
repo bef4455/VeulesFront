@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import "./ResetPassword.css";
 import myApi from "../../service/service";
+import DJI_00534 from "./../../assets/DJI_00534.mp4";
 
 function ResetPassword() {
   const [newPassword, setNewPassword] = useState("");
@@ -11,17 +13,15 @@ function ResetPassword() {
   const { token } = useParams();
 
   useEffect(() => {
-    // Vérifier la validité du jeton de réinitialisation lorsque le composant est monté
     const verifyResetToken = async () => {
       try {
         await myApi.post("/auth/verify-reset-token", { resetToken: token });
       } catch (error) {
-        // Si la vérification échoue, redirigez l'utilisateur ou effectuez toute autre gestion d'erreur nécessaire.
         console.error(
           "Erreur lors de la vérification du jeton de réinitialisation :",
           error
         );
-        navigate("/login"); // Vous pouvez ajuster cette redirection en fonction de vos besoins.
+        navigate("/login");
       }
     };
 
@@ -39,17 +39,14 @@ function ResetPassword() {
     try {
       setIsLoading(true);
 
-      // Appel à votre API pour réinitialiser le mot de passe
-      const response = await myApi.post("/auth/reset-password", {
+      const response = await myApi.post(`/auth/reinitialiser-mot-de-passe`, {
         resetToken: token,
         newPassword,
       });
 
-      // Afficher un message de succès ou rediriger l'utilisateur
       console.log(response.data.message);
       navigate("/login");
     } catch (error) {
-      // Gérer les erreurs liées à la réinitialisation du mot de passe
       setError("Erreur lors de la réinitialisation du mot de passe.");
     } finally {
       setIsLoading(false);
@@ -58,7 +55,14 @@ function ResetPassword() {
 
   return (
     <div>
-      <h2>Réinitialiser le Mot de Passe</h2>
+      <video
+        className="video"
+        src={DJI_00534}
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
       <form onSubmit={handleSubmit}>
         <label>Nouveau Mot de Passe</label>
         <input
