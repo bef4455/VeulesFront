@@ -63,7 +63,7 @@ function ResetPassword() {
         muted
         playsInline
       />
-      <form onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <label>Nouveau Mot de Passe</label>
         <input
           type="password"
@@ -72,7 +72,7 @@ function ResetPassword() {
           placeholder="Entrez votre nouveau mot de passe"
           required
         />
-        <label>Confirmer le Mot de Passe</label>
+        <label className="label">Confirmer le Mot de Passe</label>
         <input
           type="password"
           value={confirmPassword}

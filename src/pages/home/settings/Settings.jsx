@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { motion } from "framer-motion";
 import "./settings.css";
 import { Context } from "../../../context/Context";
@@ -62,7 +62,6 @@ function Settings({ fetchPosts }) {
           <span className="settingsUpdateTitle">Modifie ton compte</span>
         </div>
         <form className="settingsForm" onSubmit={handleSubmit}>
-          {/* Affichez l'avatar actuel de l'utilisateur */}
           <div className="settingsPP">
             <Avatar name={user.username} size="70" round={true} />
           </div>
