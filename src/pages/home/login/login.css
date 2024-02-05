@@ -127,10 +127,12 @@ video::-moz-media-controls-play-button {
 @media only screen and (max-width: 780px) {
     .loginTitle {
       font-size: 30px;
+      font-family: 'Roboto Condensed', sans-serif;
     }
   
     .loginForm {
       height: 250px;
+      font-family: 'Roboto Condensed', sans-serif;
     }
   
     .loginButton {
