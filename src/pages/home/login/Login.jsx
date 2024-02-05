@@ -140,15 +140,19 @@ function Login() {
 
         {showForgotPasswordModal && (
           <div className="forgotPasswordModal">
-            <label>Email</label>
+            <label className="emailLabel">Email</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Entrez votre email"
             />
-            <button onClick={handleForgotPassword}>Envoyer</button>
-            <button onClick={closeForgotPasswordModal}>Fermer</button>
+            <button className="envoyer" onClick={handleForgotPassword}>
+              Envoyer
+            </button>
+            <button className="fermer" onClick={closeForgotPasswordModal}>
+              Fermer
+            </button>
           </div>
         )}
       </motion.div>

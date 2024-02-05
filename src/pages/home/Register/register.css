@@ -37,7 +37,7 @@ video{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 50px;
+    padding: 70px;
     height: calc(40vh - 70px);
     background-color: rgba(94, 94, 94, 0.399);
     color: whitesmoke;
@@ -81,6 +81,7 @@ video{
 @media only screen and (max-width: 780px) {
     .registerTitle {
       font-size: 30px;
+
       font-family: 'Roboto Condensed', sans-serif;
     }
   

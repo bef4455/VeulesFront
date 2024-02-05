@@ -40,7 +40,7 @@ video::-moz-media-controls-play-button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 40px;
     height: calc(35vh - 70px);
    background-color: rgba(94, 94, 94, 0.399);
     color: whitesmoke;
@@ -66,6 +66,7 @@ video::-moz-media-controls-play-button {
     border-radius: 10%;
     padding: 10px;
     font-family: 'Roboto Condensed', sans-serif;
+    margin-bottom: 20px;
 }
 .loginButton:disabled{
     cursor:not-allowed;
@@ -117,6 +118,31 @@ video::-moz-media-controls-play-button {
     border: none;
     cursor: pointer;
   }
+  .emailLabel{
+    font-family: 'Roboto Condensed', sans-serif;
+    margin-right: 5px;
+  }
+  .envoyer{
+    font-family: 'Roboto Condensed', sans-serif;
+    padding: 8px 16px;
+    border-radius: 10px;
+    background-color:  rgb(33, 125, 255);
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+  .fermer{
+    font-family: 'Roboto Condensed', sans-serif;
+    padding: 8px 16px;
+    border-radius: 10px;
+    background-color:  rgb(33, 125, 255);
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+
 .errorMessage{
     color: red;
     font-size: 14px;
@@ -132,6 +158,7 @@ video::-moz-media-controls-play-button {
   
     .loginForm {
       height: 250px;
+      width: 200px;
       font-family: 'Roboto Condensed', sans-serif;
     }
   
@@ -154,4 +181,8 @@ video::-moz-media-controls-play-button {
     .successPopup {
         width: 300px;
     }
+.fermer{
+    margin-top: 10px;
+    margin-left: 50px;
   }
+}
